@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!----Google Fonts - Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <div id="home" class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-solid fa-s"></i>
+                    <div class="logo-text">Papatchol (Sam) Thientong</div>
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#portfolio">Research & Projects</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                 <div class="hero-pic">
+                    <img src="images/my_photo_converted.jpg" alt="profile pic">
+                 </div>
+                 <div class="hero-text">
+                    <h5>Hi I'm an <span class="input">English Tutor</span></h5>
+                    <h1>Papatchol (Sam) T.</h1>
+                    <p>Enthusiastic computer science student in speech and language processing, with a passion for creating tools that bridge technology and education. Alongside my research, I've spent years teaching English, combining technical innovation with teaching experience to design solutions that make language learning more effective and engaging.
+                    </p>
+
+                    <div class="btn-group">
+                       <a href="CV.pdf" class="btn active" download>Download CV</a>
+                       <a href="#contact" class="btn">Contact</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="https://www.facebook.com/Papatchol.Thientong" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/papatcholt/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/sandpapat/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://github.com/sandpapat/Thai-english-grammar-tool" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+     </div>
+
+     <!-- Resume Section -->
+     <section id="resume" class="resume-section">
+        <div class="wrapper">
+            <h2 class="section-title">Resume</h2>
+
+
+            <!-- Education Section -->
+            <div class="resume-section-block">
+                <h3 class="section-heading">Education</h3>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h4>MSc Computer Science with Speech and Natural Language Processing</h4>
+                        <span class="date">Current</span>
+                    </div>
+                    <div class="institution-with-logo">
+                        <img src="images/UOSLogo_Primary_MidnightBlack_RGB.png" alt="University of Sheffield Logo" class="university-logo">
+                        <div class="institution-text">
+                            <p class="institution">University of Sheffield, School of Computer Science, Faculty of Engineering</p>
+                            <p class="location">Sheffield, United Kingdom</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="education-item">
+                    <div class="education-header">
+                        <h4>BEng Automotive Engineering</h4>
+                        <span class="date">2019 - 2023</span>
+                    </div>
+                    <div class="institution-with-logo">
+                        <img src="images/chula_logo.png" alt="Chulalongkorn University Logo" class="university-logo">
+                        <div class="institution-text">
+                            <p class="institution">Chulalongkorn University International School of Engineering</p>
+                            <p class="location">Bangkok, Thailand</p>
+                            <p class="gpa">GPA: 3.01</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Experience Section -->
+            <div class="resume-section-block">
+                <h3 class="section-heading">Professional Experience</h3>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Chief Operating Officer</h4>
+                        <span class="date">Jul 2022 - Jul 2023</span>
+                    </div>
+                    <p class="company">Interpal English School, Bangkok</p>
+                    <ul class="achievements">
+                        <li>Developed operational framework with performance metrics for all teams</li>
+                        <li>Implemented "Hybrid English" learning method utilizing four main English skills</li>
+                        <li>Created collaborative culture resulting in increased employee engagement</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>Part-time English Tutor & Team Leader</h4>
+                        <span class="date">Aug 2018 - Jul 2022</span>
+                    </div>
+                    <p class="company">Monkey Monkey Tutoring School, Bangkok</p>
+                    <ul class="achievements">
+                        <li>Conducted English sessions for diverse class sizes (1-30 students)</li>
+                        <li>Led English Part-time division, mentoring junior tutors</li>
+                        <li>Served as Master of Ceremonies for "Uplifting" live language learning events</li>
+                    </ul>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h4>TOEIC Instructor</h4>
+                        <span class="date">Apr 2023</span>
+                    </div>
+                    <div class="company-with-logo">
+                        <img src="images/Valai 2.png" alt="Valaya Alongkorn Rajabhat University Logo" class="company-logo">
+                        <div class="company-text">
+                            <p class="company">Valaya Alongkorn Rajabhat University, Bangkok</p>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Taught TOEIC preparation course for university students</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Technical Skills Section -->
+            <div class="resume-section-block">
+                <h3 class="section-heading">Technical Skills</h3>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h4>Programming Languages</h4>
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <span class="skill-level skillful">Skillful</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Java</span>
+                            <span class="skill-level skillful">Skillful</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Specializations</h4>
+                        <div class="skill-item">
+                            <span>Natural Language Processing</span>
+                            <span class="skill-level skillful">Skillful</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Speech Processing</span>
+                            <span class="skill-level skillful">Skillful</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Languages</h4>
+                        <div class="skill-item">
+                            <span>English</span>
+                            <span class="skill-level near-native">Near-native</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Thai</span>
+                            <span class="skill-level expert">Native</span>
+                        </div>
+                    </div>
+                    <div class="skill-category">
+                        <h4>Leadership</h4>
+                        <div class="skill-item">
+                            <span>Teaching</span>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                        <div class="skill-item">
+                            <span>Team Management</span>
+                            <span class="skill-level expert">Expert</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Language Certifications Section -->
+            <div class="resume-section-block">
+                <h3 class="section-heading">Language Certifications</h3>
+                <div class="certification-item">
+                    <h4>TOEIC (Test of English for International Communication)</h4>
+                    <span class="certification-score">985/990</span>
+                </div>
+                <div class="certification-item ielts-collapsible" onclick="toggleIeltsBreakdown()">
+                    <div class="ielts-main">
+                        <h4>IELTS (International English Language Testing System)</h4>
+                        <div class="ielts-summary">
+                            <span class="certification-score">8.5 Overall</span>
+                            <i class="fa-solid fa-chevron-down ielts-toggle-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="ielts-breakdown collapsible-content" id="ieltsBreakdown">
+                    <div class="ielts-skill">
+                        <span>Reading</span>
+                        <span class="skill-score">9.0</span>
+                    </div>
+                    <div class="ielts-skill">
+                        <span>Listening</span>
+                        <span class="skill-score">9.0</span>
+                    </div>
+                    <div class="ielts-skill">
+                        <span>Writing</span>
+                        <span class="skill-score">8.0</span>
+                    </div>
+                    <div class="ielts-skill">
+                        <span>Speaking</span>
+                        <span class="skill-score">7.5</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Awards & Leadership Section -->
+            <div class="resume-section-block">
+                <h3 class="section-heading">Awards & Leadership</h3>
+                <div class="award-item">
+                    <h4>St. Gabriel's Foundation English Test</h4>
+                    <span class="award-rank">Ranked #1 (2015)</span>
+                </div>
+                <div class="award-item">
+                    <h4>Thailand's National English Test</h4>
+                    <span class="award-rank">Ranked #27 (2013)</span>
+                </div>
+                <div class="leadership-item">
+                    <h4>Class President</h4>
+                    <p>Automotive Design and Manufacturing Engineering</p>
+                </div>
+                <div class="leadership-item">
+                    <h4>Chief Financial Officer</h4>
+                    <p>Chulalongkorn University Racing Electric Club</p>
+                </div>
+            </div>
+
+            <!-- Download CV Button -->
+            <div class="cv-download">
+                <a href="CV.pdf" class="btn active" download>Download Full CV (PDF)</a>
+            </div>
+        </div>
+     </section>
+
+     <!-- Portfolio Section -->
+     <section id="portfolio" class="portfolio-section">
+        <div class="wrapper">
+            <h2 class="section-title">Research & Projects</h2>
+
+            <!-- AI/NLP Projects Category -->
+            <div class="portfolio-category">
+                <h3 class="category-title">AI/NLP Projects</h3>
+                <div class="projects-grid">
+                    <div class="project-card flagship">
+                        <div class="project-header">
+                            <h4>Thaislate: AI-Enhanced Thai-English Grammar Tool</h4>
+                            <span class="flagship-badge">Flagship Project</span>
+                        </div>
+                        <p class="project-tech">Python • NLP • LLMs • XLM-RoBERTa • Typhoon Models</p>
+                        <p class="project-description">
+                            Dissertation project developing an AI system that helps Thai learners understand English grammar through context-aware explanations. Integrates three specialized models achieving 94.7% tense classification accuracy with 4.33/5 user satisfaction.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric">94.7% Accuracy</span>
+                            <span class="metric">38 User Study</span>
+                            <span class="metric">4.33/5 Rating</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://thaislate.ai" class="project-link" target="_blank">
+                                <i class="fa-solid fa-globe"></i> Live Demo
+                            </a>
+                            <a href="https://github.com/sandpapat/Thai-english-grammar-tool" class="project-link" target="_blank">
+                                <i class="fa-brands fa-github"></i> GitHub
+                            </a>
+                            <a href="images/Thaislate (Reduced size).pdf" class="project-link" download>
+                                <i class="fa-solid fa-file-pdf"></i> Dissertation
+                            </a>
+                            <a href="#blog" class="project-link blog-link">
+                                <i class="fa-solid fa-arrow-right"></i> Read More in Blog
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Engineering & Simulation Category -->
+            <div class="portfolio-category">
+                <h3 class="category-title">Engineering & Simulation</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Traffic Congestion Optimization System</h4>
+                        </div>
+                        <p class="project-tech">Java • Anylogic • Simulation • Optimization</p>
+                        <p class="project-description">
+                            Developed a traffic light control system simulation for Bangkok intersections using Anylogic. Optimized traffic flow patterns through dynamic timing algorithms and intersection modeling.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric">27% Improvement</span>
+                            <span class="metric">Real-world Ready</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Data Science Category -->
+            <div class="portfolio-category">
+                <h3 class="category-title">Data Science</h3>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <h4>Water pH Correlation Analysis</h4>
+                        </div>
+                        <p class="project-tech">Python • Linear Regression • Statistical Analysis</p>
+                        <p class="project-description">
+                            Investigated correlations between drinking water pH levels and various weather factors using stepwise linear regression analysis. Identified key environmental predictors of water quality variations.
+                        </p>
+                        <div class="project-metrics">
+                            <span class="metric">R² = 0.36</span>
+                            <span class="metric">Multi-factor Analysis</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <!-- Blog Section -->
+     <section id="blog" class="blog-section">
+        <div class="wrapper">
+            <h2 class="section-title">Blog</h2>
+
+            <div class="blog-intro">
+                <p>Exploring the intersection of artificial intelligence, language learning, and educational technology through research and development.</p>
+            </div>
+
+            <div class="blog-posts-grid">
+                <!-- Featured Post: Introducing Thaislate -->
+                <article class="blog-card featured" onclick="toggleBlogPost('post1')">
+                    <div class="blog-card-image">
+                        <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Thai Interface">
+                        <div class="featured-badge">Featured</div>
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category nlp">NLP</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">8 min read</span>
+                        </div>
+                        <h3>Introducing Thaislate: AI-Powered Grammar Learning</h3>
+                        <p>Bridging the gap between Thai and English through context-aware AI explanations. A dissertation project that helps Thai learners understand English grammar intricacies.</p>
+                        <div class="blog-card-footer">
+                            <span class="expand-indicator">
+                                <i class="fa-solid fa-chevron-down"></i> Read More
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 2: Neural Pipeline -->
+                <article class="blog-card" onclick="toggleBlogPost('post2')">
+                    <div class="blog-card-image">
+                        <img src="images/Thaislate figures/complete_architecture.png" alt="Thaislate Architecture">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category research">Research</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">6 min read</span>
+                        </div>
+                        <h3>Building the Neural Pipeline: From Translation to Explanation</h3>
+                        <p>Deep dive into the three-layer architecture that powers Thaislate: translation, classification, and explanation generation using state-of-the-art language models.</p>
+                        <div class="blog-card-footer">
+                            <span class="expand-indicator">
+                                <i class="fa-solid fa-chevron-down"></i> Read More
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 3: BERT Classifier -->
+                <article class="blog-card" onclick="toggleBlogPost('post3')">
+                    <div class="blog-card-image">
+                        <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classification Model">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category nlp">NLP</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">7 min read</span>
+                        </div>
+                        <h3>Training a Custom BERT Classifier for Thai-English Tenses</h3>
+                        <p>How I fine-tuned XLM-RoBERTa to achieve 94.7% accuracy on 24-category English tense classification, specifically tailored for Thai learners' common mistakes.</p>
+                        <div class="blog-card-footer">
+                            <span class="expand-indicator">
+                                <i class="fa-solid fa-chevron-down"></i> Read More
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 4: UX Design -->
+                <article class="blog-card" onclick="toggleBlogPost('post4')">
+                    <div class="blog-card-image">
+                        <img src="images/Thaislate figures/3_sections.jpg" alt="Thaislate User Interface">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category ux">UX Design</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">5 min read</span>
+                        </div>
+                        <h3>User Experience Design for Language Learning</h3>
+                        <p>Designing an intuitive interface that makes complex grammar explanations accessible. From wireframes to user testing with 38 Thai learners.</p>
+                        <div class="blog-card-footer">
+                            <span class="expand-indicator">
+                                <i class="fa-solid fa-chevron-down"></i> Read More
+                            </span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Post 5: Performance Analysis -->
+                <article class="blog-card" onclick="toggleBlogPost('post5')">
+                    <div class="blog-card-image">
+                        <img src="images/Thaislate figures/System_performance.jpg" alt="System Performance Metrics">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span class="blog-category data">Data Analysis</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">6 min read</span>
+                        </div>
+                        <h3>Measuring Success: User Analytics and Performance</h3>
+                        <p>Analyzing user satisfaction scores, system performance metrics, and the surprising disconnect between technical accuracy and user experience.</p>
+                        <div class="blog-card-footer">
+                            <span class="expand-indicator">
+                                <i class="fa-solid fa-chevron-down"></i> Read More
+                            </span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Expandable Blog Content -->
+            <div id="post1" class="blog-post-content">
+                <div class="blog-post-header">
+                    <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Interface" class="post-hero-image">
+                    <div class="post-header-content">
+                        <h2>Introducing Thaislate: AI-Powered Grammar Learning</h2>
+                        <div class="post-meta">
+                            <span class="blog-category nlp">NLP</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">8 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-body">
+                    <h4>The Challenge</h4>
+                    <p>Thai learners struggle with English tenses because Thai lacks grammatical tense markers. Existing translation tools provide corrections without explanations, leaving learners unable to understand their errors.</p>
+
+                    <div class="image-showcase">
+                        <img src="images/Thaislate figures/English_page.jpg" alt="English Interface" class="inline-image">
+                        <p class="image-caption">Thaislate's English interface showing grammar explanations</p>
+                    </div>
+
+                    <h4>The Solution</h4>
+                    <p>Thaislate demonstrates how large language models can bridge this gap through context-aware grammar explanations using a sophisticated pipeline architecture.</p>
+
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">94.7%</div>
+                            <div class="result-label">Tense Classification Accuracy</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">38</div>
+                            <div class="result-label">Thai Learners in User Study</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">4.33/5</div>
+                            <div class="result-label">User Satisfaction Rating</div>
+                        </div>
+                    </div>
+
+                    <div class="blog-links">
+                        <a href="https://thaislate.ai" class="blog-link-btn" target="_blank">
+                            <i class="fa-solid fa-globe"></i> Try Thaislate
+                        </a>
+                        <a href="https://github.com/sandpapat/Thai-english-grammar-tool" class="blog-link-btn" target="_blank">
+                            <i class="fa-brands fa-github"></i> View Source Code
+                        </a>
+                        <a href="images/Thaislate (Reduced size).pdf" class="blog-link-btn" download>
+                            <i class="fa-solid fa-file-pdf"></i> Download Dissertation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="post2" class="blog-post-content">
+                <div class="blog-post-header">
+                    <img src="images/Thaislate figures/complete_architecture.png" alt="Complete Architecture" class="post-hero-image">
+                    <div class="post-header-content">
+                        <h2>Building the Neural Pipeline: From Translation to Explanation</h2>
+                        <div class="post-meta">
+                            <span class="blog-category research">Research</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">6 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-body">
+                    <h4>Multi-Stage Architecture</h4>
+                    <p>Thaislate employs a sophisticated three-layer neural pipeline that transforms Thai input into contextual English grammar explanations.</p>
+
+                    <div class="image-showcase">
+                        <img src="images/Thaislate figures/Multi-stage processing pipeline.png" alt="Processing Pipeline" class="inline-image">
+                        <p class="image-caption">The complete processing pipeline from Thai input to English explanation</p>
+                    </div>
+
+                    <div class="tech-details">
+                        <div class="tech-component">
+                            <h5>Translation Layer</h5>
+                            <p><strong>Typhoon Translate 4B</strong> - Thai-English translation with context preservation</p>
+                        </div>
+                        <div class="tech-component">
+                            <h5>Classification Layer</h5>
+                            <p><strong>Custom XLM-RoBERTa</strong> - 24-category tense classification achieving 94.7% accuracy</p>
+                        </div>
+                        <div class="tech-component">
+                            <h5>Explanation Layer</h5>
+                            <p><strong>Typhoon 2.1 12B</strong> - Educational explanation generation tailored for Thai learners</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="post3" class="blog-post-content">
+                <div class="blog-post-header">
+                    <img src="images/Thaislate figures/model_architecture.png" alt="Model Architecture" class="post-hero-image">
+                    <div class="post-header-content">
+                        <h2>Training a Custom BERT Classifier for Thai-English Tenses</h2>
+                        <div class="post-meta">
+                            <span class="blog-category nlp">NLP</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">7 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-body">
+                    <h4>Fine-tuning XLM-RoBERTa</h4>
+                    <p>Achieving 94.7% accuracy on English tense classification required careful model selection and training strategies specifically designed for Thai learners' common grammatical errors.</p>
+
+                    <div class="image-showcase">
+                        <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classifier" class="inline-image">
+                        <p class="image-caption">BERT classifier architecture for tense classification</p>
+                    </div>
+
+                    <h4>Training Process</h4>
+                    <p>The model was trained on a curated dataset of Thai-English translation pairs, with specific focus on the 24 most common tense categories that pose challenges for Thai learners.</p>
+                </div>
+            </div>
+
+            <div id="post4" class="blog-post-content">
+                <div class="blog-post-header">
+                    <img src="images/Thaislate figures/light_mode.jpg" alt="Light Mode Interface" class="post-hero-image">
+                    <div class="post-header-content">
+                        <h2>User Experience Design for Language Learning</h2>
+                        <div class="post-meta">
+                            <span class="blog-category ux">UX Design</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">5 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-body">
+                    <h4>Design Philosophy</h4>
+                    <p>Creating an intuitive interface that makes complex AI-generated grammar explanations accessible to Thai learners required extensive user research and iterative design.</p>
+
+                    <div class="image-showcase">
+                        <img src="images/Thaislate figures/3_sections.jpg" alt="Three Sections Layout" class="inline-image">
+                        <p class="image-caption">Clean three-section layout for optimal learning flow</p>
+                    </div>
+
+                    <h4>User Testing Results</h4>
+                    <p>Through testing with 38 Thai learners, we achieved a 4.33/5 satisfaction rating for explanation quality, validating our user-centered design approach.</p>
+                </div>
+            </div>
+
+            <div id="post5" class="blog-post-content">
+                <div class="blog-post-header">
+                    <img src="images/Thaislate figures/user_analytics.jpg" alt="User Analytics Dashboard" class="post-hero-image">
+                    <div class="post-header-content">
+                        <h2>Measuring Success: User Analytics and Performance</h2>
+                        <div class="post-meta">
+                            <span class="blog-category data">Data Analysis</span>
+                            <span class="blog-date">September 2025</span>
+                            <span class="reading-time">6 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="blog-post-body">
+                    <h4>Key Performance Insights</h4>
+                    <p>The disconnect between technical performance (74% pipeline accuracy) and user satisfaction (4.33/5) revealed important insights about what learners truly value in educational technology.</p>
+
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <div class="result-number">99.5%</div>
+                            <div class="result-label">System Uptime</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">474</div>
+                            <div class="result-label">User Ratings Collected</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-number">74%</div>
+                            <div class="result-label">Pipeline Accuracy</div>
+                        </div>
+                    </div>
+
+                    <h4>Learning Effectiveness</h4>
+                    <p>This finding establishes the foundation for future longitudinal studies on learning effectiveness, showing that clear explanations matter more than perfect accuracy.</p>
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <!-- Contact Section -->
+     <section id="contact" class="contact-section">
+        <div class="wrapper">
+            <h2 class="section-title">Contact</h2>
+
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h3>Papatchol (Sam) Thientong</h3>
+                    <p class="contact-location">Bangkok, Thailand</p>
+                    <p class="contact-summary">Part-time introvert, full-time overthinker who somehow ended up teaching machines to teach humans English grammar (yes, the irony isn't lost on me). When I'm not debugging why my AI thinks 'I will had been going' is a valid tense, you'll find me passionately explaining F1 aerodynamics to anyone within earshot, or teaching English while sneaking in racing metaphors ('Your grammar needs better downforce!'). I oscillate between wanting to discuss the philosophical implications of neural networks at parties and hiding in the corner with my headphones on. My Spotify wrapped is a chaotic mix of lofi study beats and eurobeat racing soundtracks. Currently training AI to be a better language teacher than me, which is either brilliant or career suicide – jury's still out. Formula 1 fan who treats every code deployment like a pit stop, and yes, I've definitely explained the DRS system using English verb conjugations as an analogy. Send help (or better GPU resources).</p>
+                </div>
+
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <a href="mailto:papatchol.t@gmail.com">papatchol.t@gmail.com</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <i class="fa-brands fa-line"></i>
+                        <div class="contact-details">
+                            <h4>Line ID</h4>
+                            <span>dewsand</span>
+                        </div>
+                    </div>
+
+                    <div class="contact-method">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <div class="contact-details">
+                            <h4>LinkedIn</h4>
+                            <a href="https://www.linkedin.com/in/papatcholt/" target="_blank">linkedin.com/in/papatcholt</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-links">
+                    <h4>Connect with me</h4>
+                    <div class="social-icons">
+                        <a href="https://www.linkedin.com/in/papatcholt/" target="_blank" class="social-link linkedin">
+                            <i class="fa-brands fa-linkedin"></i>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://github.com/sandpapat/Thai-english-grammar-tool" target="_blank" class="social-link github">
+                            <i class="fa-brands fa-github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.facebook.com/Papatchol.Thientong" target="_blank" class="social-link facebook">
+                            <i class="fa-brands fa-facebook"></i>
+                            <span>Facebook</span>
+                        </a>
+                        <a href="https://www.instagram.com/sandpapat/" target="_blank" class="social-link instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                            <span>Instagram</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="quick-downloads">
+                    <h4>Quick Downloads</h4>
+                    <div class="download-buttons">
+                        <a href="CV.pdf" class="download-btn" download>
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Download CV</span>
+                        </a>
+                        <a href="images/Thaislate (Reduced size).pdf" class="download-btn" download>
+                            <i class="fa-solid fa-file-pdf"></i>
+                            <span>Download Dissertation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="availability-status">
+                    <div class="status-indicator">
+                        <div class="status-dot available"></div>
+                        <span>Available for collaboration opportunities and research positions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </section>
+
+     <!---typed js for typing text effect-->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+     <script>
+        /** creating button click show hide navbar **/
+        var togglebtn=document.querySelector(".togglebtn");
+        var nav=document.querySelector(".navlinks");
+        var links=document.querySelector(".navlinks li");
+
+        togglebtn.addEventListener("click", function(){
+            this.classList.toggle("click");
+            nav.classList.toggle("open");
+        })
+
+        var typed=new Typed(".input",{
+            strings:["English Tutor","NLP Engineer","ML Engineer"],
+            typedSpeed:70,
+            backSpeed:55,
+            loop:true
+        })
+
+        /** Toggle IELTS breakdown functionality **/
+        function toggleIeltsBreakdown() {
+            const breakdown = document.getElementById('ieltsBreakdown');
+            const icon = document.querySelector('.ielts-toggle-icon');
+
+            if (breakdown.classList.contains('expanded')) {
+                breakdown.classList.remove('expanded');
+                icon.classList.remove('rotated');
+            } else {
+                breakdown.classList.add('expanded');
+                icon.classList.add('rotated');
+            }
+        }
+
+        /** Toggle blog post expand/collapse functionality **/
+        function toggleBlogPost(postId) {
+            const post = document.getElementById(postId);
+
+            if (post.style.display === 'block') {
+                post.style.display = 'none';
+            } else {
+                // Hide all other posts first
+                const allPosts = document.querySelectorAll('.blog-post-content');
+                allPosts.forEach(p => p.style.display = 'none');
+
+                // Show the selected post
+                post.style.display = 'block';
+
+                // Smooth scroll to the post
+                post.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+     </script>
+</body>
+</html>
