@@ -293,7 +293,7 @@
                             <a href="images/Thaislate (Reduced size).pdf" class="project-link" download>
                                 <i class="fa-solid fa-file-pdf"></i> Dissertation
                             </a>
-                            <a href="#blog" class="project-link blog-link">
+                            <a href="blog1.html" class="project-link blog-link">
                                 <i class="fa-solid fa-arrow-right"></i> Read More in Blog
                             </a>
                         </div>
@@ -354,7 +354,7 @@
 
             <div class="blog-posts-grid">
                 <!-- Featured Post: Introducing Thaislate -->
-                <article class="blog-card featured" onclick="toggleBlogPost('post1')">
+                <article class="blog-card featured" onclick="window.location.href='blog1.html'">
                     <div class="blog-card-image">
                         <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Thai Interface">
                         <div class="featured-badge">Featured</div>
@@ -369,14 +369,14 @@
                         <p>Bridging the gap between Thai and English through context-aware AI explanations. A dissertation project that helps Thai learners understand English grammar intricacies.</p>
                         <div class="blog-card-footer">
                             <span class="expand-indicator">
-                                <i class="fa-solid fa-chevron-down"></i> Read More
+                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
                             </span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 2: Neural Pipeline -->
-                <article class="blog-card" onclick="toggleBlogPost('post2')">
+                <article class="blog-card" onclick="window.location.href='blog2.html'">
                     <div class="blog-card-image">
                         <img src="images/Thaislate figures/complete_architecture.png" alt="Thaislate Architecture">
                     </div>
@@ -390,14 +390,14 @@
                         <p>Deep dive into the three-layer architecture that powers Thaislate: translation, classification, and explanation generation using state-of-the-art language models.</p>
                         <div class="blog-card-footer">
                             <span class="expand-indicator">
-                                <i class="fa-solid fa-chevron-down"></i> Read More
+                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
                             </span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 3: BERT Classifier -->
-                <article class="blog-card" onclick="toggleBlogPost('post3')">
+                <article class="blog-card" onclick="window.location.href='blog3.html'">
                     <div class="blog-card-image">
                         <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classification Model">
                     </div>
@@ -411,14 +411,14 @@
                         <p>How I fine-tuned XLM-RoBERTa to achieve 94.7% accuracy on 24-category English tense classification, specifically tailored for Thai learners' common mistakes.</p>
                         <div class="blog-card-footer">
                             <span class="expand-indicator">
-                                <i class="fa-solid fa-chevron-down"></i> Read More
+                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
                             </span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 4: UX Design -->
-                <article class="blog-card" onclick="toggleBlogPost('post4')">
+                <article class="blog-card" onclick="window.location.href='blog4.html'">
                     <div class="blog-card-image">
                         <img src="images/Thaislate figures/3_sections.jpg" alt="Thaislate User Interface">
                     </div>
@@ -432,14 +432,14 @@
                         <p>Designing an intuitive interface that makes complex grammar explanations accessible. From wireframes to user testing with 38 Thai learners.</p>
                         <div class="blog-card-footer">
                             <span class="expand-indicator">
-                                <i class="fa-solid fa-chevron-down"></i> Read More
+                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
                             </span>
                         </div>
                     </div>
                 </article>
 
                 <!-- Post 5: Performance Analysis -->
-                <article class="blog-card" onclick="toggleBlogPost('post5')">
+                <article class="blog-card" onclick="window.location.href='blog5.html'">
                     <div class="blog-card-image">
                         <img src="images/Thaislate figures/System_performance.jpg" alt="System Performance Metrics">
                     </div>
@@ -453,197 +453,13 @@
                         <p>Analyzing user satisfaction scores, system performance metrics, and the surprising disconnect between technical accuracy and user experience.</p>
                         <div class="blog-card-footer">
                             <span class="expand-indicator">
-                                <i class="fa-solid fa-chevron-down"></i> Read More
+                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
                             </span>
                         </div>
                     </div>
                 </article>
             </div>
 
-            <!-- Expandable Blog Content -->
-            <div id="post1" class="blog-post-content">
-                <div class="blog-post-header">
-                    <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Interface" class="post-hero-image">
-                    <div class="post-header-content">
-                        <h2>Introducing Thaislate: AI-Powered Grammar Learning</h2>
-                        <div class="post-meta">
-                            <span class="blog-category nlp">NLP</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">8 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog-post-body">
-                    <h4>The Challenge</h4>
-                    <p>Thai learners struggle with English tenses because Thai lacks grammatical tense markers. Existing translation tools provide corrections without explanations, leaving learners unable to understand their errors.</p>
-
-                    <div class="image-showcase">
-                        <img src="images/Thaislate figures/English_page.jpg" alt="English Interface" class="inline-image">
-                        <p class="image-caption">Thaislate's English interface showing grammar explanations</p>
-                    </div>
-
-                    <h4>The Solution</h4>
-                    <p>Thaislate demonstrates how large language models can bridge this gap through context-aware grammar explanations using a sophisticated pipeline architecture.</p>
-
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <div class="result-number">94.7%</div>
-                            <div class="result-label">Tense Classification Accuracy</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">38</div>
-                            <div class="result-label">Thai Learners in User Study</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">4.33/5</div>
-                            <div class="result-label">User Satisfaction Rating</div>
-                        </div>
-                    </div>
-
-                    <div class="blog-links">
-                        <a href="https://thaislate.ai" class="blog-link-btn" target="_blank">
-                            <i class="fa-solid fa-globe"></i> Try Thaislate
-                        </a>
-                        <a href="https://github.com/sandpapat/Thai-english-grammar-tool" class="blog-link-btn" target="_blank">
-                            <i class="fa-brands fa-github"></i> View Source Code
-                        </a>
-                        <a href="images/Thaislate (Reduced size).pdf" class="blog-link-btn" download>
-                            <i class="fa-solid fa-file-pdf"></i> Download Dissertation
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div id="post2" class="blog-post-content">
-                <div class="blog-post-header">
-                    <img src="images/Thaislate figures/complete_architecture.png" alt="Complete Architecture" class="post-hero-image">
-                    <div class="post-header-content">
-                        <h2>Building the Neural Pipeline: From Translation to Explanation</h2>
-                        <div class="post-meta">
-                            <span class="blog-category research">Research</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">6 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog-post-body">
-                    <h4>Multi-Stage Architecture</h4>
-                    <p>Thaislate employs a sophisticated three-layer neural pipeline that transforms Thai input into contextual English grammar explanations.</p>
-
-                    <div class="image-showcase">
-                        <img src="images/Thaislate figures/Multi-stage processing pipeline.png" alt="Processing Pipeline" class="inline-image">
-                        <p class="image-caption">The complete processing pipeline from Thai input to English explanation</p>
-                    </div>
-
-                    <div class="tech-details">
-                        <div class="tech-component">
-                            <h5>Translation Layer</h5>
-                            <p><strong>Typhoon Translate 4B</strong> - Thai-English translation with context preservation</p>
-                        </div>
-                        <div class="tech-component">
-                            <h5>Classification Layer</h5>
-                            <p><strong>Custom XLM-RoBERTa</strong> - 24-category tense classification achieving 94.7% accuracy</p>
-                        </div>
-                        <div class="tech-component">
-                            <h5>Explanation Layer</h5>
-                            <p><strong>Typhoon 2.1 12B</strong> - Educational explanation generation tailored for Thai learners</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="post3" class="blog-post-content">
-                <div class="blog-post-header">
-                    <img src="images/Thaislate figures/model_architecture.png" alt="Model Architecture" class="post-hero-image">
-                    <div class="post-header-content">
-                        <h2>Training a Custom BERT Classifier for Thai-English Tenses</h2>
-                        <div class="post-meta">
-                            <span class="blog-category nlp">NLP</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">7 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog-post-body">
-                    <h4>Fine-tuning XLM-RoBERTa</h4>
-                    <p>Achieving 94.7% accuracy on English tense classification required careful model selection and training strategies specifically designed for Thai learners' common grammatical errors.</p>
-
-                    <div class="image-showcase">
-                        <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classifier" class="inline-image">
-                        <p class="image-caption">BERT classifier architecture for tense classification</p>
-                    </div>
-
-                    <h4>Training Process</h4>
-                    <p>The model was trained on a curated dataset of Thai-English translation pairs, with specific focus on the 24 most common tense categories that pose challenges for Thai learners.</p>
-                </div>
-            </div>
-
-            <div id="post4" class="blog-post-content">
-                <div class="blog-post-header">
-                    <img src="images/Thaislate figures/light_mode.jpg" alt="Light Mode Interface" class="post-hero-image">
-                    <div class="post-header-content">
-                        <h2>User Experience Design for Language Learning</h2>
-                        <div class="post-meta">
-                            <span class="blog-category ux">UX Design</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">5 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog-post-body">
-                    <h4>Design Philosophy</h4>
-                    <p>Creating an intuitive interface that makes complex AI-generated grammar explanations accessible to Thai learners required extensive user research and iterative design.</p>
-
-                    <div class="image-showcase">
-                        <img src="images/Thaislate figures/3_sections.jpg" alt="Three Sections Layout" class="inline-image">
-                        <p class="image-caption">Clean three-section layout for optimal learning flow</p>
-                    </div>
-
-                    <h4>User Testing Results</h4>
-                    <p>Through testing with 38 Thai learners, we achieved a 4.33/5 satisfaction rating for explanation quality, validating our user-centered design approach.</p>
-                </div>
-            </div>
-
-            <div id="post5" class="blog-post-content">
-                <div class="blog-post-header">
-                    <img src="images/Thaislate figures/user_analytics.jpg" alt="User Analytics Dashboard" class="post-hero-image">
-                    <div class="post-header-content">
-                        <h2>Measuring Success: User Analytics and Performance</h2>
-                        <div class="post-meta">
-                            <span class="blog-category data">Data Analysis</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">6 min read</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog-post-body">
-                    <h4>Key Performance Insights</h4>
-                    <p>The disconnect between technical performance (74% pipeline accuracy) and user satisfaction (4.33/5) revealed important insights about what learners truly value in educational technology.</p>
-
-                    <div class="results-grid">
-                        <div class="result-item">
-                            <div class="result-number">99.5%</div>
-                            <div class="result-label">System Uptime</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">474</div>
-                            <div class="result-label">User Ratings Collected</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-number">74%</div>
-                            <div class="result-label">Pipeline Accuracy</div>
-                        </div>
-                    </div>
-
-                    <h4>Learning Effectiveness</h4>
-                    <p>This finding establishes the foundation for future longitudinal studies on learning effectiveness, showing that clear explanations matter more than perfect accuracy.</p>
-                </div>
-            </div>
         </div>
      </section>
 
@@ -765,24 +581,6 @@
             }
         }
 
-        /** Toggle blog post expand/collapse functionality **/
-        function toggleBlogPost(postId) {
-            const post = document.getElementById(postId);
-
-            if (post.style.display === 'block') {
-                post.style.display = 'none';
-            } else {
-                // Hide all other posts first
-                const allPosts = document.querySelectorAll('.blog-post-content');
-                allPosts.forEach(p => p.style.display = 'none');
-
-                // Show the selected post
-                post.style.display = 'block';
-
-                // Smooth scroll to the post
-                post.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        }
      </script>
 </body>
 </html>

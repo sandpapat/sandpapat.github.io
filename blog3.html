@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training a Custom BERT Classifier for Thai-English Tenses | Papatchol (Sam) Thientong</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!----Google Fonts - Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-page {
+            min-height: 100vh;
+            background-color: #222;
+            color: #e5e5e5;
+            padding: 40px 0;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .blog-header h1 {
+            font-size: 2.5em;
+            color: #007ced;
+            margin-bottom: 10px;
+        }
+        .blog-meta {
+            color: #999;
+            margin-bottom: 20px;
+        }
+        .blog-category {
+            background: #007ced;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+        .back-to-portfolio {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .back-to-portfolio a {
+            color: #007ced;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-to-portfolio a:hover {
+            text-decoration: underline;
+        }
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+        .blog-content h2 {
+            color: #007ced;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .blog-content h3 {
+            color: #ccc;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .blog-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .highlight-box {
+            background: #333;
+            border-left: 4px solid #007ced;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .critical-insight {
+            background: linear-gradient(135deg, #ff6b6b20, #ff6b6b10);
+            border: 2px solid #ff6b6b;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .critical-insight h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        .taxonomy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .tense-category {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #007ced;
+        }
+        .tense-category h4 {
+            color: #007ced;
+            margin: 0 0 15px 0;
+            font-size: 1.2em;
+        }
+        .tense-example {
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 8px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+        .dataset-stats {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .dataset-stats h3 {
+            color: #007ced;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        .stat-item:last-child {
+            border-bottom: none;
+        }
+        .stat-label {
+            color: #ccc;
+        }
+        .stat-value {
+            color: #007ced;
+            font-weight: 600;
+        }
+        .architecture-diagram {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .architecture-diagram img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .dual-head-explanation {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .dual-head-explanation h3 {
+            color: #007ced;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .head-item {
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #007ced;
+        }
+        .head-item h4 {
+            color: #ccc;
+            margin: 0 0 10px 0;
+        }
+        .training-details {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .training-details h3 {
+            color: #007ced;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .weight-distribution {
+            display: flex;
+            margin: 20px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 40px;
+        }
+        .fine-weight {
+            background: #007ced;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        .coarse-weight {
+            background: #ff6b6b;
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        .performance-metrics {
+            background: linear-gradient(135deg, #28a74520, #28a74510);
+            border: 2px solid #28a745;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .performance-metrics h3 {
+            color: #28a745;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .metric-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .metric-item:last-child {
+            border-bottom: none;
+        }
+        .metric-label {
+            color: #ccc;
+        }
+        .metric-value {
+            color: #28a745;
+            font-weight: 600;
+            font-size: 1.2em;
+        }
+        .advantages-list {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .advantages-list h4 {
+            color: #007ced;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        .advantages-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .advantages-list strong {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-page">
+        <div class="wrapper">
+            <div class="back-to-portfolio">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+
+            <div class="blog-header">
+                <h1>Training a Custom BERT Classifier for Thai-English Tenses</h1>
+                <div class="blog-meta">
+                    <span class="blog-category">NLP</span>
+                    <span>September 2025</span> • <span>7 min read</span>
+                </div>
+            </div>
+
+            <div class="architecture-diagram">
+                <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classification Model Architecture">
+            </div>
+
+            <div class="blog-content">
+                <div class="highlight-box">
+                    <p><strong>Overview:</strong> Achieving 94.7% accuracy on English tense classification required careful model selection and training strategies specifically designed for Thai learners' common grammatical errors. This post explores the development of a hierarchical 24-category classification system that forms the heart of Thaislate's educational intelligence.</p>
+                </div>
+
+                <h2>The Critical Need for Specialized Tense Classification</h2>
+
+                <p>The development of a dedicated tense classification model emerged from a fundamental limitation discovered during system testing: general-purpose language models consistently failed at accurate tense identification, which would have undermined the entire educational purpose of the system.</p>
+
+                <div class="critical-insight">
+                    <h3>The Discovery That Changed Everything</h3>
+                    <p>Initial experiments with GPT-style instruction-following models seemed potentially viable as they could handle translation and explanation generation reasonably well. However, when tasked with tense classification, these models demonstrated concerning inconsistency.</p>
+
+                    <p>A sentence like "I have been studying for three years" might be classified as "Present Continuous" on one attempt and "Present Perfect Continuous" on another, despite being identical input. This unpredictability would be pedagogically harmful, as learners could receive conflicting explanations for the same grammatical structure.</p>
+                </div>
+
+                <p>Unlike general NLP applications where small classification errors might be acceptable, educational systems require high reliability. An incorrect tense classification leads directly to incorrect grammar explanation, potentially reinforcing learner errors rather than correcting them. For Thai learners already struggling with English temporal concepts, such misinformation could significantly impede learning progress.</p>
+
+                <h2>Design Requirements for Educational Reliability</h2>
+
+                <p>This discovery necessitated developing a classification system optimized specifically for educational reliability:</p>
+
+                <div class="advantages-list">
+                    <h4>Core Requirements</h4>
+                    <ul>
+                        <li><strong>Consistency:</strong> Identical inputs must produce identical classifications every time</li>
+                        <li><strong>Nuanced Distinction:</strong> Ability to distinguish between subtle tense variations crucial for Thai learners (e.g., habits vs. general facts)</li>
+                        <li><strong>Confidence Scoring:</strong> Quantified certainty levels to identify potentially problematic classifications</li>
+                        <li><strong>Educational Taxonomy:</strong> Classification categories aligned with how tenses are taught to Thai learners</li>
+                    </ul>
+                </div>
+
+                <h2>The 24-Category Tense Taxonomy</h2>
+
+                <p>The classification system implements a custom taxonomy developed with reference to established Thai grammar teaching materials, designed to address specific challenges Thai learners face:</p>
+
+                <div class="taxonomy-grid">
+                    <div class="tense-category">
+                        <h4>Present Tenses (9 categories)</h4>
+                        <div class="tense-example">HABIT: She drinks tea every morning</div>
+                        <div class="tense-example">FACT: The sun rises in the east</div>
+                        <div class="tense-example">HAPPENING: They are discussing the budget</div>
+                        <div class="tense-example">PROGRESS: The crew is building the bridge</div>
+                        <div class="tense-example">+ 5 more specialized categories</div>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4>Perfect Tenses (4 categories)</h4>
+                        <div class="tense-example">JUSTFIN: She has just finished homework</div>
+                        <div class="tense-example">RESULT: I have lost my keys</div>
+                        <div class="tense-example">EXP: I have visited Japan three times</div>
+                        <div class="tense-example">SINCEFOR: He has been studying for two years</div>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4>Past Tenses (5 categories)</h4>
+                        <div class="tense-example">NORFIN: I did not eat the cake</div>
+                        <div class="tense-example">INTERRUPT: I was watching TV when he called</div>
+                        <div class="tense-example">BEFOREPAST: She had left before the party</div>
+                        <div class="tense-example">DURATION: They had been driving for hours</div>
+                        <div class="tense-example">+ 1 more specialized category</div>
+                    </div>
+
+                    <div class="tense-category">
+                        <h4>Future Tenses (6 categories)</h4>
+                        <div class="tense-example">50PERC: It will rain soon</div>
+                        <div class="tense-example">PROMISE: I will always support you</div>
+                        <div class="tense-example">RIGHTNOW: I'll open the window right now</div>
+                        <div class="tense-example">PREDICT: Scientists will have developed a vaccine</div>
+                        <div class="tense-example">+ 2 more specialized categories</div>
+                    </div>
+                </div>
+
+                <h2>Dataset Preparation and Curation</h2>
+
+                <p>The classification model was trained on a carefully curated dataset combining multiple sources to ensure comprehensive coverage of English tense structures:</p>
+
+                <div class="dataset-stats">
+                    <h3>Dataset Composition</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Fine-grained labels (manually annotated)</span>
+                        <span class="stat-value">2,505 sentences</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Coarse labels only (Past/Present/Future)</span>
+                        <span class="stat-value">13,316 sentences</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Total unique English sentences</span>
+                        <span class="stat-value">15,755</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Train/Validation split</span>
+                        <span class="stat-value">80/20 (stratified)</span>
+                    </div>
+                </div>
+
+                <div class="architecture-diagram">
+                    <img src="images/Thaislate figures/dataset_example.jpg" alt="Dataset Structure Example">
+                </div>
+
+                <h3>Manual Annotation Process</h3>
+
+                <p>The 2,505 fine-grained labels were manually annotated by analyzing each sentence for its primary tense usage pattern and labeling according to the 24-category taxonomy framework. Labels were assigned based on Thai teaching methodology and learning objectives, with ambiguous cases resolved using context and primary grammatical intent.</p>
+
+                <div class="highlight-box">
+                    <h3>Ethical Considerations</h3>
+                    <p>The dataset annotation process received separate ethical approval from the University Research Ethics Committee of the University of Sheffield (Application Number 070793). All sentences came from publicly available Kaggle datasets and contained no personally identifiable information.</p>
+                </div>
+
+                <h2>Hierarchical Classification Architecture</h2>
+
+                <p>The core innovation of the tense classification system lies in its hierarchical approach, which mirrors how humans naturally understand temporal relationships by first identifying the broad time frame (past, present, future) before determining specific grammatical functions.</p>
+
+                <div class="architecture-diagram">
+                    <img src="images/Thaislate figures/model_architecture.png" alt="Hierarchical Classification Architecture">
+                </div>
+
+                <div class="dual-head-explanation">
+                    <h3>Dual-Head Architecture</h3>
+                    <p>The model employs a dual-head architecture where XLM-RoBERTa's multilingual encoder feeds into two classification heads:</p>
+
+                    <div class="head-item">
+                        <h4>Coarse Head</h4>
+                        <p>Predicts broad temporal categories (Past/Present/Future) - provides foundational temporal understanding and fallback capability</p>
+                    </div>
+
+                    <div class="head-item">
+                        <h4>Fine Head</h4>
+                        <p>Predicts specific tense functions (24 detailed categories) - enables precise grammatical instruction for educational purposes</p>
+                    </div>
+
+                    <div class="head-item">
+                        <h4>Shared Encoder</h4>
+                        <p>XLM-RoBERTa processes multilingual input understanding - leverages cross-lingual knowledge for Thai-English contexts</p>
+                    </div>
+                </div>
+
+                <h2>Training Strategy and Loss Optimization</h2>
+
+                <p>The model uses weighted loss optimization that balances both classification levels to ensure both temporal consistency and detailed grammatical accuracy:</p>
+
+                <div class="training-details">
+                    <h3>Weighted Loss Distribution</h3>
+                    <div class="weight-distribution">
+                        <div class="fine-weight">70% Fine-grained</div>
+                        <div class="coarse-weight">30% Coarse</div>
+                    </div>
+
+                    <ul>
+                        <li><strong>70% weight on fine-grained accuracy:</strong> Prioritizes the detailed classifications needed for grammar instruction</li>
+                        <li><strong>30% weight on coarse accuracy:</strong> Ensures temporal consistency and provides fallback capability</li>
+                        <li><strong>Combined loss function:</strong> Prevents the model from achieving fine-grained accuracy at the expense of basic temporal understanding</li>
+                    </ul>
+                </div>
+
+                <div class="advantages-list">
+                    <h4>Hierarchical Approach Benefits</h4>
+                    <ul>
+                        <li><strong>Pedagogical Alignment:</strong> Matches how tenses are taught with broad concepts first, then specific applications</li>
+                        <li><strong>Error Mitigation:</strong> If fine-grained classification fails, coarse classification can still provide useful educational feedback</li>
+                        <li><strong>Training Efficiency:</strong> Shared temporal knowledge improves learning across related categories</li>
+                    </ul>
+                </div>
+
+                <h2>Performance Results</h2>
+
+                <p>The specialized classification system demonstrates significant improvements over general-purpose models:</p>
+
+                <div class="performance-metrics">
+                    <h3>Classification Performance</h3>
+                    <div class="metric-item">
+                        <span class="metric-label">Isolated Model Accuracy</span>
+                        <span class="metric-value">94.7%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Pipeline Integration Accuracy</span>
+                        <span class="metric-value">74%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Consistency Rate</span>
+                        <span class="metric-value">100%</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-label">Educational Reliability</span>
+                        <span class="metric-value">High</span>
+                    </div>
+                </div>
+
+                <h2>XLM-RoBERTa: The Foundation</h2>
+
+                <p>The choice of XLM-RoBERTa as the base model provides several advantages for Thai-English educational contexts:</p>
+
+                <ul>
+                    <li><strong>Multilingual Understanding:</strong> Pre-trained on 100 languages including Thai and English</li>
+                    <li><strong>Cross-lingual Transfer:</strong> Leverages knowledge from related languages and structures</li>
+                    <li><strong>Robust Performance:</strong> Demonstrated state-of-the-art results in cross-lingual classification tasks</li>
+                    <li><strong>Educational Suitability:</strong> Balanced model size suitable for educational deployment</li>
+                </ul>
+
+                <h2>Key Innovation: Educational vs. Technical Performance</h2>
+
+                <div class="critical-insight">
+                    <h3>The Insight That Matters</h3>
+                    <p>The difference between isolated accuracy (94.7%) and pipeline accuracy (74%) revealed a crucial insight: while technical degradation occurs in real-world deployment, user satisfaction remained high (4.33/5 for explanation quality).</p>
+
+                    <p>This demonstrates that educational effectiveness isn't purely determined by technical metrics—learners value clear, consistent explanations even when the underlying classification isn't perfect.</p>
+                </div>
+
+                <h2>Impact on Educational AI</h2>
+
+                <p>The hierarchical BERT classifier represents a significant contribution to educational natural language processing:</p>
+
+                <ul>
+                    <li><strong>Specialized Taxonomy:</strong> First implementation of Thai learner-specific English tense categories</li>
+                    <li><strong>Hierarchical Design:</strong> Novel dual-head architecture for educational classification</li>
+                    <li><strong>Consistency Achievement:</strong> Reliable performance crucial for educational applications</li>
+                    <li><strong>Cross-linguistic Bridge:</strong> Effective handling of Thai-English grammatical differences</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Continue the Technical Journey</h3>
+                    <p>Explore more aspects of the system:</p>
+                    <ul style="margin-top: 15px;">
+                        <li><a href="blog2.html" style="color: #007ced;">Building the Neural Pipeline: From Translation to Explanation</a></li>
+                        <li><a href="blog4.html" style="color: #007ced;">User Experience Design for Language Learning</a></li>
+                        <li><a href="blog5.html" style="color: #007ced;">Measuring Success: User Analytics and Performance</a></li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <a href="https://thaislate.ai" target="_blank" style="background: #007ced; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-solid fa-globe"></i> Try Thaislate
+                    </a>
+                    <a href="https://github.com/sandpapat/Thai-english-grammar-tool" target="_blank" style="background: #333; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-brands fa-github"></i> View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="back-to-portfolio" style="margin-top: 40px;">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

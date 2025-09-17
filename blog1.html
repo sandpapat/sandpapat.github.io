@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducing Thaislate: AI-Powered Grammar Learning | Papatchol (Sam) Thientong</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!----Google Fonts - Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-page {
+            min-height: 100vh;
+            background-color: #222;
+            color: #e5e5e5;
+            padding: 40px 0;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .blog-header h1 {
+            font-size: 2.5em;
+            color: #007ced;
+            margin-bottom: 10px;
+        }
+        .blog-meta {
+            color: #999;
+            margin-bottom: 20px;
+        }
+        .blog-category {
+            background: #007ced;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+        .back-to-portfolio {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .back-to-portfolio a {
+            color: #007ced;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-to-portfolio a:hover {
+            text-decoration: underline;
+        }
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+        .blog-content h2 {
+            color: #007ced;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .blog-content h3 {
+            color: #ccc;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .blog-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .highlight-box {
+            background: #333;
+            border-left: 4px solid #007ced;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .objectives-list {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .objectives-list ol {
+            margin-left: 20px;
+        }
+        .objectives-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .objectives-list strong {
+            color: #007ced;
+        }
+        .blog-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .blog-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .research-question {
+            background: linear-gradient(135deg, #007ced20, #007ced10);
+            border: 2px solid #007ced;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        .research-question h3 {
+            color: #007ced;
+            margin-bottom: 15px;
+        }
+        .research-question p {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin: 0;
+        }
+        .chapter-overview {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .chapter-overview h3 {
+            color: #007ced;
+            margin-bottom: 20px;
+        }
+        .chapter-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #444;
+        }
+        .chapter-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+        .chapter-title {
+            color: #ccc;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-page">
+        <div class="wrapper">
+            <div class="back-to-portfolio">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+
+            <div class="blog-header">
+                <h1>Introducing Thaislate: AI-Powered Grammar Learning</h1>
+                <div class="blog-meta">
+                    <span class="blog-category">NLP</span>
+                    <span>September 2025</span> • <span>8 min read</span>
+                </div>
+            </div>
+
+            <div class="blog-image">
+                <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Thai Interface">
+            </div>
+
+            <div class="blog-content">
+                <div class="highlight-box">
+                    <p><strong>Abstract:</strong> Thai learners struggle with English tenses because Thai lacks grammatical tense markers. Existing translation tools provide corrections without explanations, leaving learners unable to understand their errors. This dissertation develops Thaislate, a proof-of-concept system demonstrating how large language models can bridge this gap through context-aware grammar explanations.</p>
+                </div>
+
+                <h2>The Challenge: When Languages Don't Align</h2>
+
+                <p>Imagine a Thai university student named Somchai working on his thesis proposal in English. He writes "I am study at university for three years" and knows something sounds wrong, but cannot explain why. His translation app suggests "I have been studying at university for three years," but offers no explanation of why the present perfect continuous tense is appropriate here. Frustrated, Somchai memorises the correction without understanding the underlying temporal logic, leaving him likely to repeat similar errors.</p>
+
+                <p>This scenario illustrates a widespread challenge: Thai learners struggle with English tense usage because Thai is a "tenseless language" that relies on contextual cues rather than grammatical markers to convey time relationships. Current educational tools compound this problem. Translation systems provide corrections without explanation, while grammar instruction emphasises rote memorisation over contextual understanding.</p>
+
+                <div class="research-question">
+                    <h3>Central Research Question</h3>
+                    <p>Can AI-powered tools help Thai learners understand English tense usage through contextual, automatically-generated explanations?</p>
+                </div>
+
+                <h2>The Solution: Thaislate</h2>
+
+                <p>This question drives the development of <strong>Thaislate</strong>, a web-based tool that helps Thai learners understand English tenses through explanations in their native language. When a user types a Thai sentence like "chan gin khao chao laew" (I ate breakfast already), the system not only translates it to "I have eaten breakfast" but also explains <em>why</em> the present perfect tense is used instead of past simple.</p>
+
+                <p>The explanation clarifies that the Thai word "laew" (already) indicates a completed action with present relevance, which corresponds to English present perfect usage. The tool acts like a knowledgeable tutor who understands both languages and can bridge the conceptual gap between Thai and English temporal systems, transforming simple translation interactions into learning opportunities.</p>
+
+                <div class="blog-image">
+                    <img src="images/Thaislate figures/English_page.jpg" alt="Thaislate English Interface">
+                </div>
+
+                <h2>Research Aims and Objectives</h2>
+
+                <p>This research develops Thaislate as a proof-of-concept system that demonstrates how large language models can be integrated to provide grammar-aware translation with educational explanations. The research validates the technical approach and user acceptance, establishing the foundation for future studies on educational effectiveness.</p>
+
+                <div class="objectives-list">
+                    <h3>Five Key Objectives</h3>
+                    <ol>
+                        <li><strong>Build the Core System:</strong> To implement a three-component pipeline integrating Thai-English translation, tense identification, and educational explanation generation. This architecture was discovered through iterative testing when monolithic approaches failed to achieve acceptable accuracy, particularly in tense classification.</li>
+
+                        <li><strong>Develop Tense Recognition System:</strong> To create a hierarchical classification system capable of identifying not only broad tense categories (Past, Present, Future) but also detailed temporal distinctions (24 specific uses such as "completed action with present relevance" or "scheduled future events").</li>
+
+                        <li><strong>Create an Intuitive Learning Interface:</strong> To develop a user-friendly web application where Thai learners can input sentences in Thai and receive accurate English translations accompanied by clear explanations that bridge Thai and English temporal concepts.</li>
+
+                        <li><strong>Validate System Design and User Acceptance:</strong> To assess both the technical accuracy of the system and user acceptance through user studies with Thai English learners, validating that the tool addresses identified needs.</li>
+
+                        <li><strong>Contribute to Educational AI Research:</strong> To contribute new insights into how artificial intelligence systems can be designed for educational applications in contexts where linguistic resources are limited.</li>
+                    </ol>
+                </div>
+
+                <h2>Technical Architecture Overview</h2>
+
+                <p>The system integrates three specialised models in a pipeline architecture:</p>
+
+                <ul>
+                    <li><strong>Typhoon Translate 4B</strong> for Thai-English translation</li>
+                    <li><strong>Custom-trained XLM-RoBERTa</strong> achieving 94.7% accuracy on 24-category tense classification</li>
+                    <li><strong>Typhoon 2.1 12B</strong> generating educational explanations</li>
+                </ul>
+
+                <div class="blog-image">
+                    <img src="images/Thaislate figures/complete_architecture.png" alt="Thaislate Complete Architecture">
+                </div>
+
+                <h2>Validation and Results</h2>
+
+                <p>User testing with 38 Thai learners produced 474 ratings averaging 4.2/5, with explanation quality rated 4.33/5 despite 74% pipeline tense classification accuracy. The disconnect between technical performance and user satisfaction validates the approach: learners value clear explanations even when imperfect.</p>
+
+                <p>The system successfully serves real users with 99.5% uptime, establishing technical feasibility and user acceptance as foundation for future longitudinal studies on learning effectiveness.</p>
+
+                <div class="chapter-overview">
+                    <h3>Research Journey Overview</h3>
+                    <div class="chapter-item">
+                        <div class="chapter-title">Literature Review</div>
+                        <p>Examines existing research in machine translation for Thai-English language pairs, grammatical tense classification systems, and computer-assisted language learning tools.</p>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="chapter-title">User Study and Requirements Analysis</div>
+                        <p>Presents empirical research with 218 Thai English learners to understand their specific challenges and preferences for grammar learning tools.</p>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="chapter-title">Design and Implementation - Core Models</div>
+                        <p>Focuses on the development of the three specialised AI models that form the system's educational core, from initial experimentation to final architecture.</p>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="chapter-title">Design and Implementation - Pipeline and Website</div>
+                        <p>Describes how individual models integrate into a complete educational system, including web application architecture and production deployment.</p>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="chapter-title">Evaluation and Results</div>
+                        <p>Presents comprehensive evaluation across technical performance, pipeline integration accuracy, and user acceptance validation.</p>
+                    </div>
+                    <div class="chapter-item">
+                        <div class="chapter-title">Conclusion and Future Work</div>
+                        <p>Summarises key achievements, reflects on challenges encountered, and proposes future research directions in educational NLP.</p>
+                    </div>
+                </div>
+
+                <h2>Academic Context</h2>
+
+                <p>This project directly applies the core competencies of the MSc Computer Science with Speech and Language Processing programme. The Text Processing and Natural Language Processing modules provided essential foundations for implementing transformer-based classification and handling Thai-English cross-lingual processing, while the programme's evaluation methodologies guided the assessment framework.</p>
+
+                <p>Although the interdisciplinary nature required extending beyond the curriculum to incorporate pedagogical principles, this integration demonstrates the programme's goal of preparing graduates to apply computational linguistics to real-world educational challenges.</p>
+
+                <div class="highlight-box">
+                    <h3>Next Steps</h3>
+                    <p>Explore the technical details of how Thaislate works in the following blog posts:</p>
+                    <ul style="margin-top: 15px;">
+                        <li><a href="blog2.html" style="color: #007ced;">Building the Neural Pipeline: From Translation to Explanation</a></li>
+                        <li><a href="blog3.html" style="color: #007ced;">Training a Custom BERT Classifier for Thai-English Tenses</a></li>
+                        <li><a href="blog4.html" style="color: #007ced;">User Experience Design for Language Learning</a></li>
+                        <li><a href="blog5.html" style="color: #007ced;">Measuring Success: User Analytics and Performance</a></li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <a href="https://thaislate.ai" target="_blank" style="background: #007ced; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-solid fa-globe"></i> Try Thaislate
+                    </a>
+                    <a href="https://github.com/sandpapat/Thai-english-grammar-tool" target="_blank" style="background: #333; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-brands fa-github"></i> View Source Code
+                    </a>
+                    <a href="images/Thaislate (Reduced size).pdf" download style="background: #444; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-solid fa-file-pdf"></i> Download Dissertation
+                    </a>
+                </div>
+            </div>
+
+            <div class="back-to-portfolio" style="margin-top: 40px;">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building the Neural Pipeline: From Translation to Explanation | Papatchol (Sam) Thientong</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!----Google Fonts - Source Sans Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .blog-page {
+            min-height: 100vh;
+            background-color: #222;
+            color: #e5e5e5;
+            padding: 40px 0;
+        }
+        .blog-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .blog-header h1 {
+            font-size: 2.5em;
+            color: #007ced;
+            margin-bottom: 10px;
+        }
+        .blog-meta {
+            color: #999;
+            margin-bottom: 20px;
+        }
+        .blog-category {
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-right: 10px;
+        }
+        .back-to-portfolio {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .back-to-portfolio a {
+            color: #007ced;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-to-portfolio a:hover {
+            text-decoration: underline;
+        }
+        .blog-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+        .blog-content h2 {
+            color: #007ced;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .blog-content h3 {
+            color: #ccc;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        .blog-content p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .highlight-box {
+            background: #333;
+            border-left: 4px solid #007ced;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .phase-box {
+            background: #2a2a2a;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border-left: 4px solid #ff6b6b;
+        }
+        .phase-box h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        .architecture-overview {
+            background: linear-gradient(135deg, #007ced20, #007ced10);
+            border: 2px solid #007ced;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .architecture-overview h3 {
+            color: #007ced;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        .model-list {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .model-list li {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .model-list strong {
+            color: #007ced;
+        }
+        .blog-image {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .blog-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .tech-stack {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+        .tech-stack h3 {
+            color: #007ced;
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        .tech-item {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background: #333;
+            border-radius: 5px;
+            display: inline-block;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        .preprocessing-table {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        .preprocessing-table table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #333;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .preprocessing-table th {
+            background: #007ced;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+        .preprocessing-table td {
+            padding: 12px;
+            border-bottom: 1px solid #444;
+        }
+        .preprocessing-table tr:last-child td {
+            border-bottom: none;
+        }
+        .code-example {
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            color: #e5e5e5;
+            overflow-x: auto;
+        }
+        .advantages-list {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .advantages-list h4 {
+            color: #007ced;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        .advantages-list li {
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .advantages-list strong {
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="blog-page">
+        <div class="wrapper">
+            <div class="back-to-portfolio">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+
+            <div class="blog-header">
+                <h1>Building the Neural Pipeline: From Translation to Explanation</h1>
+                <div class="blog-meta">
+                    <span class="blog-category">Research</span>
+                    <span>September 2025</span> • <span>6 min read</span>
+                </div>
+            </div>
+
+            <div class="blog-image">
+                <img src="images/Thaislate figures/complete_architecture.png" alt="Complete Thaislate Architecture">
+            </div>
+
+            <div class="blog-content">
+                <div class="highlight-box">
+                    <p><strong>Overview:</strong> Thaislate employs a sophisticated three-layer neural pipeline that transforms Thai input into contextual English grammar explanations. This post explores the architecture that emerged through iterative development and the technical decisions that made educational AI possible.</p>
+                </div>
+
+                <h2>The Evolution of Architecture: A Journey of Discovery</h2>
+
+                <p>The development of Thaislate wasn't a straight path from conception to implementation. Instead, it represents a journey of discovery where initial limitations revealed the need for specialized approaches, ultimately leading to innovative solutions for educational natural language processing.</p>
+
+                <div class="phase-box">
+                    <h3>Phase 1: The Monolithic Vision</h3>
+                    <p>The project began with a straightforward goal: create "an English grammar breakdown thing" using a single, detailed language model. This approach initially seemed logical—instruction-following models had demonstrated capabilities in educational content generation and could theoretically handle both translation and grammar explanation tasks within a unified framework.</p>
+
+                    <p><strong>The Critical Discovery:</strong> During early experimentation, a critical limitation emerged that would reshape the entire project architecture. Instruction-following models, while capable of generating fluent and pedagogically appropriate explanations, consistently misclassified English tenses. This created a devastating problem for educational applications: learners would receive confident, well-structured explanations about incorrect grammatical concepts.</p>
+                </div>
+
+                <div class="phase-box">
+                    <h3>Phase 2: Pipeline Architecture Discovery</h3>
+                    <p>The three-stage pipeline architecture emerged organically through trial-and-error within Google Colab's experimental environment. While testing different model combinations and approaches, it became evident that specialized models working in sequence could achieve superior results compared to any single general-purpose system.</p>
+
+                    <p><strong>Key Insight:</strong> Translation → Classification → Explanation as separate, specialized processes outperformed all attempts at unified models. This discovery became the foundation of the entire system design.</p>
+                </div>
+
+                <div class="phase-box">
+                    <h3>Phase 3: Production Reality</h3>
+                    <p>The transition from Colab's experimental environment to production deployment revealed numerous practical challenges that shaped the final system architecture. Memory and computational limitations led to several solutions that ultimately improved the system:</p>
+
+                    <ul>
+                        <li><strong>GGUF Quantisation Discovery:</strong> Initial attempts to load multiple models exceeded 16GB RAM limits, leading to the adoption of GGUF quantisation that enabled efficient CPU-only inference</li>
+                        <li><strong>Hybrid Architecture Evolution:</strong> Resource constraints drove the hybrid local-API approach, combining local efficiency with cloud-based quality for optimal cost-performance balance</li>
+                        <li><strong>Thread-Safe Design:</strong> Concurrent user access issues necessitated thread-safe model management, improving system reliability beyond initial requirements</li>
+                    </ul>
+                </div>
+
+                <div class="architecture-overview">
+                    <h3>Three-Model Architecture: Specialized Excellence</h3>
+                    <p>The development journey culminated in a three-model architecture where each component serves a distinct educational function, validated through practical deployment and user testing.</p>
+                </div>
+
+                <div class="blog-image">
+                    <img src="images/Thaislate figures/model_architecture.png" alt="Core Model Architecture">
+                </div>
+
+                <h2>Technical Stack and Implementation</h2>
+
+                <p>The implementation leverages multiple specialized libraries to create a robust educational platform:</p>
+
+                <div class="tech-stack">
+                    <h3>Core Technologies</h3>
+                    <div class="tech-item">Flask 2.3.3 Web Framework</div>
+                    <div class="tech-item">llama-cpp-python (GGUF Model Inference)</div>
+                    <div class="tech-item">Transformers + PyTorch (XLM-RoBERTa)</div>
+                    <div class="tech-item">Together API Client</div>
+                    <div class="tech-item">Flask-SQLAlchemy 3.0.5</div>
+                    <div class="tech-item">Flask-Login 0.6.3</div>
+                    <div class="tech-item">Flask-Babel 2.0.0</div>
+                </div>
+
+                <h2>The Three Specialized Models</h2>
+
+                <div class="model-list">
+                    <h3>1. Translation Model: Typhoon Translate 4B</h3>
+                    <ul>
+                        <li><strong>Purpose:</strong> Convert Thai learner input into analysable English text</li>
+                        <li><strong>Specialization:</strong> Thai-English language pairs with temporal marker preservation</li>
+                        <li><strong>Key Advantage:</strong> 67.2% win rate against major competitors including GPT-4 variants</li>
+                        <li><strong>Implementation:</strong> GGUF quantization for CPU-only deployment</li>
+                    </ul>
+                </div>
+
+                <div class="model-list">
+                    <h3>2. Classification Model: Custom XLM-RoBERTa</h3>
+                    <ul>
+                        <li><strong>Purpose:</strong> Identify specific English tense categories (24 classifications)</li>
+                        <li><strong>Specialization:</strong> Thai learner-specific temporal distinctions</li>
+                        <li><strong>Key Advantage:</strong> 94.7% accuracy with consistency across identical inputs</li>
+                        <li><strong>Innovation:</strong> Hierarchical taxonomy designed for educational contexts</li>
+                    </ul>
+                </div>
+
+                <div class="model-list">
+                    <h3>3. Explanation Model: Typhoon 2.1 12B</h3>
+                    <ul>
+                        <li><strong>Purpose:</strong> Generate pedagogically appropriate grammar explanations</li>
+                        <li><strong>Specialization:</strong> Educational content tailored for Thai learners</li>
+                        <li><strong>Key Advantage:</strong> Context-aware explanations bridging Thai-English concepts</li>
+                        <li><strong>Implementation:</strong> API-based for optimal quality and resource management</li>
+                    </ul>
+                </div>
+
+                <div class="advantages-list">
+                    <h4>Advantages of the Three-Model Approach</h4>
+                    <ul>
+                        <li><strong>Task-Specific Optimization:</strong> Each model can be fine-tuned for its particular educational function</li>
+                        <li><strong>Performance Reliability:</strong> Higher accuracy than general-purpose alternatives in comparative evaluation</li>
+                        <li><strong>Independent Improvement:</strong> Models can be upgraded or replaced without affecting the entire system</li>
+                        <li><strong>Computational Efficiency:</strong> Resource allocation optimized for each model's specific requirements</li>
+                    </ul>
+                </div>
+
+                <h2>Preprocessing Pipeline: Ensuring Educational Quality</h2>
+
+                <p>Before any model processing occurs, the system implements detailed preprocessing to ensure appropriate educational content and optimal learning conditions:</p>
+
+                <div class="preprocessing-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Function</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Educational Content Filtering</strong></td>
+                                <td>Detects inappropriate content using 40+ Thai profanity patterns with exception handling</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Language Detection</strong></td>
+                                <td>Identifies English vs Thai input through character distribution analysis</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Token Limitation</strong></td>
+                                <td>Restricts input to 100 tokens maximum for computational efficiency</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Multi-Sentence Detection</strong></td>
+                                <td>Identifies sentence boundaries using regex patterns for Thai and English</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Fragment Detection</strong></td>
+                                <td>Validates complete sentence structure including verb presence</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Graceful Degradation</strong></td>
+                                <td>Enables partial processing with educational feedback when issues occur</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>Translation Model Deep Dive</h2>
+
+                <p>The translation component uses a minimalist prompting approach recommended by the Typhoon model developers:</p>
+
+                <div class="code-example">
+Translate this Thai text to English: {thai_input}
+                </div>
+
+                <p>This simple approach reflects the specialized nature of Typhoon Translate, which was trained specifically for Thai-English translation tasks and achieves optimal performance through direct prompts without complex instructional formatting.</p>
+
+                <div class="blog-image">
+                    <img src="images/Thaislate figures/Multi-stage processing pipeline.png" alt="Multi-stage Processing Pipeline">
+                </div>
+
+                <h2>Data Flow and Integration Strategy</h2>
+
+                <p>The pipeline orchestrates three specialized models in sequential processing to transform Thai learner input into detailed English grammar instruction. The integration strategy emphasizes:</p>
+
+                <ul>
+                    <li><strong>Data Flow Optimization:</strong> Each stage produces output optimized for the next component</li>
+                    <li><strong>Educational Coherence:</strong> Maintaining pedagogical context throughout the processing chain</li>
+                    <li><strong>Error Propagation Management:</strong> Handling failures gracefully while providing educational value</li>
+                    <li><strong>Context Preservation:</strong> Maintaining original Thai context for culturally appropriate explanations</li>
+                </ul>
+
+                <h2>Performance and Reliability</h2>
+
+                <p>The specialized architecture demonstrates significant advantages over monolithic approaches:</p>
+
+                <ul>
+                    <li><strong>Translation:</strong> 93.2% fluency rating in user evaluations</li>
+                    <li><strong>Classification:</strong> 94.7% accuracy on isolated evaluation, 74% in pipeline integration</li>
+                    <li><strong>Explanations:</strong> 84.9% correctness rating with 4.33/5 user satisfaction</li>
+                    <li><strong>System Uptime:</strong> 99.5% availability during user testing period</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h3>Key Insight: Technical vs. Educational Performance</h3>
+                    <p>The disconnect between technical performance (74% pipeline accuracy) and user satisfaction (4.33/5) validated a crucial insight: learners value clear explanations even when imperfect. This finding shaped our understanding that educational effectiveness isn't purely determined by technical metrics.</p>
+                </div>
+
+                <h2>Looking Forward</h2>
+
+                <p>The three-model architecture establishes a foundation for future educational NLP systems. The specialized approach demonstrates that task-specific optimization can outperform general-purpose solutions in educational contexts, providing a model for similar cross-linguistic learning challenges.</p>
+
+                <div class="highlight-box">
+                    <h3>Continue the Journey</h3>
+                    <p>Explore more technical details:</p>
+                    <ul style="margin-top: 15px;">
+                        <li><a href="blog3.html" style="color: #007ced;">Training a Custom BERT Classifier for Thai-English Tenses</a></li>
+                        <li><a href="blog4.html" style="color: #007ced;">User Experience Design for Language Learning</a></li>
+                        <li><a href="blog5.html" style="color: #007ced;">Measuring Success: User Analytics and Performance</a></li>
+                    </ul>
+                </div>
+
+                <div style="text-align: center; margin: 40px 0;">
+                    <a href="https://thaislate.ai" target="_blank" style="background: #007ced; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-solid fa-globe"></i> Try Thaislate
+                    </a>
+                    <a href="https://github.com/sandpapat/Thai-english-grammar-tool" target="_blank" style="background: #333; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: 600; margin: 0 10px;">
+                        <i class="fa-brands fa-github"></i> View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <div class="back-to-portfolio" style="margin-top: 40px;">
+                <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
