@@ -94,7 +94,7 @@ header{
 .logo .logo-text{
     font-size: 24px;
     font-weight: 500;
-    color: var(--text-white);
+    color: var(--text-primary);
 }
 nav .togglebtn{
     width: 35px;
@@ -174,7 +174,7 @@ nav .navlinks li a{
 }
 .btn-group .btn{
     border-color: var(--border-light);
-    color: var(--text-white);
+    color: var(--text-primary);
     background-color: var(--secondary-bg);
     padding: 12px 25px;
     margin: 5px 0px;
