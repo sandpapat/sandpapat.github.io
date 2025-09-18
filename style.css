@@ -8,6 +8,7 @@
     --text-primary: #222222;
     --text-secondary: #666666;
     --text-muted: #999999;
+    --text-white: #ffffff;
     --border-color: #dee2e6;
     --border-light: #e0e0e0;
     --accent-blue: #007ced;
@@ -25,6 +26,7 @@
     --text-primary: #e5e5e5;
     --text-secondary: #cccccc;
     --text-muted: #999999;
+    --text-white: #ffffff;
     --border-color: #555555;
     --border-light: #666666;
     --accent-blue: #007ced;
@@ -80,7 +82,7 @@ header{
     width:45px;
     background-color: var(--accent-blue);
     border-radius: 50%;
-    color: #fff;
+    color: var(--text-white);
     font-weight: 700;
     font-size: 1.5rem;
     padding: 10px;
@@ -92,7 +94,7 @@ header{
 .logo .logo-text{
     font-size: 24px;
     font-weight: 500;
-    color: #fff;
+    color: var(--text-white);
 }
 nav .togglebtn{
     width: 35px;
@@ -172,7 +174,7 @@ nav .navlinks li a{
 }
 .btn-group .btn{
     border-color: var(--border-light);
-    color: #fff;
+    color: var(--text-white);
     background-color: var(--secondary-bg);
     padding: 12px 25px;
     margin: 5px 0px;
@@ -330,7 +332,7 @@ nav .navlinks li a{
 .date {
     color: var(--accent-blue);
     font-weight: 600;
-    background: #555;
+    background: var(--tertiary-bg);
     padding: 5px 15px;
     border-radius: 20px;
 }
@@ -495,17 +497,17 @@ nav .navlinks li a{
 
 .skill-level.expert {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .skill-level.skillful {
-    background: #555;
+    background: var(--tertiary-bg);
     color: var(--text-primary);
 }
 
 .skill-level.near-native {
     background: #28a745;
-    color: #fff;
+    color: var(--text-white);
 }
 
 /* Projects Section */
@@ -564,7 +566,7 @@ nav .navlinks li a{
 
 .certification-score {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 8px 20px;
     border-radius: 25px;
     font-weight: 700;
@@ -639,13 +641,13 @@ nav .navlinks li a{
     justify-content: space-between;
     align-items: center;
     padding: 10px 15px;
-    background: #555;
+    background: var(--tertiary-bg);
     border-radius: 8px;
     transition: 0.3s;
 }
 
 .ielts-skill:hover {
-    background: #666;
+    background: var(--border-color);
 }
 
 .ielts-skill span:first-child {
@@ -655,7 +657,7 @@ nav .navlinks li a{
 
 .skill-score {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 5px 12px;
     border-radius: 15px;
     font-weight: 700;
@@ -686,7 +688,7 @@ nav .navlinks li a{
 
 .award-rank {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 5px 15px;
     border-radius: 20px;
     font-weight: 600;
@@ -710,7 +712,7 @@ nav .navlinks li a{
 
 /* Portfolio Section Styles */
 .portfolio-section {
-    background: #2a2a2a;
+    background: var(--secondary-bg);
     padding: 80px 0;
     min-height: 100vh;
 }
@@ -750,7 +752,7 @@ nav .navlinks li a{
 
 .project-card.flagship {
     border-color: var(--accent-blue);
-    background: linear-gradient(135deg, #444 0%, #4a4a4a 100%);
+    background: var(--card-bg);
 }
 
 .project-header {
@@ -770,7 +772,7 @@ nav .navlinks li a{
 
 .flagship-badge {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -799,7 +801,7 @@ nav .navlinks li a{
 }
 
 .metric {
-    background: #555;
+    background: var(--tertiary-bg);
     color: var(--text-primary);
     padding: 6px 12px;
     border-radius: 15px;
@@ -817,7 +819,7 @@ nav .navlinks li a{
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: #555;
+    background: var(--tertiary-bg);
     color: var(--text-primary);
     padding: 8px 15px;
     border-radius: 20px;
@@ -829,7 +831,7 @@ nav .navlinks li a{
 
 .project-link:hover {
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     transform: translateY(-2px);
 }
 
@@ -887,7 +889,7 @@ nav .navlinks li a{
 
 .blog-card.featured {
     border-color: var(--accent-blue);
-    background: linear-gradient(135deg, #444 0%, #4a4a4a 100%);
+    background: var(--card-bg);
 }
 
 .blog-card-image {
@@ -912,7 +914,7 @@ nav .navlinks li a{
     top: 15px;
     right: 15px;
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -935,7 +937,7 @@ nav .navlinks li a{
     border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 600;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .blog-category.nlp {
@@ -998,7 +1000,7 @@ nav .navlinks li a{
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-out;
-    background: #2a2a2a;
+    background: var(--secondary-bg);
     border-radius: 15px;
     margin-top: 20px;
 }
@@ -1092,7 +1094,7 @@ nav .navlinks li a{
 }
 
 .tech-component {
-    background: #555;
+    background: var(--tertiary-bg);
     padding: 20px;
     border-radius: 10px;
     border-left: 4px solid #007ced;
@@ -1115,7 +1117,7 @@ nav .navlinks li a{
 }
 
 .result-item {
-    background: #555;
+    background: var(--tertiary-bg);
     padding: 20px;
     border-radius: 10px;
     text-align: center;
@@ -1135,7 +1137,7 @@ nav .navlinks li a{
 }
 
 .result-item:hover .result-number {
-    color: #fff;
+    color: var(--text-white);
 }
 
 .result-label {
@@ -1158,7 +1160,7 @@ nav .navlinks li a{
     align-items: center;
     gap: 10px;
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 12px 20px;
     border-radius: 25px;
     font-weight: 600;
@@ -1174,7 +1176,7 @@ nav .navlinks li a{
 
 /* Contact Section Styles */
 .contact-section {
-    background: #2a2a2a;
+    background: var(--secondary-bg);
     padding: 80px 0;
     min-height: 100vh;
 }
@@ -1309,22 +1311,22 @@ nav .navlinks li a{
 
 .social-link.linkedin:hover {
     background: #0077b5;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .social-link.github:hover {
     background: var(--secondary-bg);
-    color: #fff;
+    color: var(--text-white);
 }
 
 .social-link.facebook:hover {
     background: #1877f2;
-    color: #fff;
+    color: var(--text-white);
 }
 
 .social-link.instagram:hover {
     background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    color: #fff;
+    color: var(--text-white);
 }
 
 .quick-downloads {
@@ -1350,7 +1352,7 @@ nav .navlinks li a{
     align-items: center;
     gap: 10px;
     background: #007ced;
-    color: #fff;
+    color: var(--text-white);
     padding: 12px 25px;
     border-radius: 25px;
     text-decoration: none;
