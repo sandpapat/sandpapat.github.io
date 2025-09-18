@@ -22,15 +22,10 @@
                     <div class="logo-text">Papatchol (Sam) Thientong</div>
                 </div>
                 <nav>
-                    <div class="nav-controls">
-                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                            <i class="fa-solid fa-sun" id="theme-icon"></i>
-                        </button>
-                        <div class="togglebtn">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                     <ul class="navlinks">
                         <li><a href="#home">Home</a></li>
@@ -38,6 +33,11 @@
                         <li><a href="#portfolio">Research & Projects</a></li>
                         <li><a href="#blog">Blog</a></li>
                         <li><a href="#contact">Contact</a></li>
+                        <li>
+                            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                                <i class="fa-solid fa-sun" id="theme-icon"></i>
+                            </button>
+                        </li>
                     </ul>
                 </nav>
             </header>
@@ -627,7 +627,12 @@
 
             // Add event listener to theme toggle button
             const themeToggle = document.getElementById('theme-toggle');
-            themeToggle.addEventListener('click', toggleTheme);
+            if (themeToggle) {
+                themeToggle.addEventListener('click', toggleTheme);
+                console.log('Theme toggle button found and listener added');
+            } else {
+                console.error('Theme toggle button not found');
+            }
         });
 
         /** Toggle IELTS breakdown functionality **/

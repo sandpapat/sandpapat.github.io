@@ -1535,12 +1535,6 @@ nav .navlinks li a{
 }
 
 /* Theme Toggle Styles */
-.nav-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
 .theme-toggle {
     background: none;
     border: 2px solid var(--border-color);
@@ -1554,6 +1548,7 @@ nav .navlinks li a{
     justify-content: center;
     transition: all 0.3s ease;
     font-size: 16px;
+    margin-left: 20px;
 }
 
 .theme-toggle:hover {
@@ -1568,14 +1563,11 @@ nav .navlinks li a{
 
 /* Mobile responsive adjustments for theme toggle */
 @media screen and (max-width: 930px) {
-    .nav-controls {
-        order: 2;
-        gap: 10px;
-    }
-
     .theme-toggle {
         width: 35px;
         height: 35px;
         font-size: 14px;
+        margin-left: 15px;
+        margin-top: 10px;
     }
 }
