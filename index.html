@@ -22,10 +22,15 @@
                     <div class="logo-text">Papatchol (Sam) Thientong</div>
                 </div>
                 <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                    <div class="nav-controls">
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                            <i class="fa-solid fa-sun" id="theme-icon"></i>
+                        </button>
+                        <div class="togglebtn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                     <ul class="navlinks">
                         <li><a href="#home">Home</a></li>
@@ -582,6 +587,49 @@
             loop:true
         })
 
+        /** Theme Toggle Functionality **/
+        function initTheme() {
+            // Check for saved theme preference or default to light theme
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            let currentTheme = savedTheme;
+            if (!savedTheme) {
+                currentTheme = 'light'; // Default to light theme
+            }
+
+            // Apply theme
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        }
+
+        function updateThemeIcon(theme) {
+            const icon = document.getElementById('theme-icon');
+            if (theme === 'dark') {
+                icon.className = 'fa-solid fa-sun';
+            } else {
+                icon.className = 'fa-solid fa-moon';
+            }
+        }
+
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        }
+
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+
+            // Add event listener to theme toggle button
+            const themeToggle = document.getElementById('theme-toggle');
+            themeToggle.addEventListener('click', toggleTheme);
+        });
+
         /** Toggle IELTS breakdown functionality **/
         function toggleIeltsBreakdown() {
             const breakdown = document.getElementById('ieltsBreakdown');
@@ -599,9 +647,9 @@
      </script>
 
      <!-- Footer -->
-     <footer style="background-color: #111; padding: 20px 0; text-align: center; margin-top: 50px; border-top: 1px solid #333;">
+     <footer class="site-footer">
         <div class="wrapper">
-            <p style="color: #999; margin: 0; font-size: 14px;">
+            <p class="copyright-text">
                 © 2025 Copyright: Papatchol Thientong
             </p>
         </div>
