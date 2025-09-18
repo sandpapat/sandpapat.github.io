@@ -1,10 +1,10 @@
 /* CSS Custom Properties for Theme Support */
 :root {
     /* Light theme (default) */
-    --primary-bg: #ffffff;
-    --secondary-bg: #f8f9fa;
+    --primary-bg: #fafbfc;
+    --secondary-bg: #f5f6f7;
     --tertiary-bg: #e9ecef;
-    --card-bg: #ffffff;
+    --card-bg: #fdfdfd;
     --text-primary: #222222;
     --text-secondary: #666666;
     --text-muted: #999999;
@@ -14,7 +14,7 @@
     --accent-blue: #007ced;
     --accent-blue-hover: #0056b3;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --overlay-bg: rgba(255, 255, 255, 0.95);
+    --overlay-bg: rgba(250, 251, 252, 0.95);
 }
 
 [data-theme="dark"] {
