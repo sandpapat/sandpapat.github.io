@@ -1189,6 +1189,7 @@ nav .navlinks li a{
     border-radius: 10px;
     border: 2px solid #555;
     transition: 0.3s;
+    min-width: 0;
 }
 
 .contact-method:hover {
@@ -1203,6 +1204,11 @@ nav .navlinks li a{
     text-align: center;
 }
 
+.contact-details {
+    flex: 1;
+    min-width: 0;
+}
+
 .contact-details h4 {
     color: #007ced;
     margin-bottom: 5px;
@@ -1213,6 +1219,8 @@ nav .navlinks li a{
     color: #e5e5e5;
     text-decoration: none;
     transition: 0.3s;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .contact-details a:hover {
