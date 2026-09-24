@@ -1,663 +1,395 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Papatchol (Sand) Thientong: PhD student in Linguistics at Chulalongkorn University, working on Thai NLP and empathy in AI-generated Thai.">
     <title>Papatchol (Sand) Thientong</title>
+    <script>
+        /* Apply saved theme before paint to avoid a flash */
+        try { document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'light'); } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+    </script>
     <link rel="stylesheet" href="style.css">
     <!----Font awesome cdn  font icon css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-    <!----Google Fonts - Source Sans Pro -->
+    <!----Google Fonts - Big Shoulders Display, IBM Plex Sans (+ Thai), IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
-     <div id="home" class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-s"></i>
-                    <div class="logo-text">Papatchol (Sand) Thientong</div>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="wrapper header-inner">
+            <a href="#home" class="logo" aria-label="Back to top">
+                <span class="logo-plate">27</span>
+                <span class="logo-text">Sand Thientong</span>
+            </a>
+            <nav>
+                <button class="togglebtn" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="navlinks">
+                    <li><a href="#now">Now</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#pitlane">Pit lane</a></li>
+                    <li><a href="#garage">Garage</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#radio">Contact</a></li>
+                    <li>
+                        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light and dark mode">
+                            <i class="fa-solid fa-moon" id="theme-icon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Chequered strip; the kart tracks scroll progress -->
+        <div class="track" aria-hidden="true">
+            <div class="kart" id="kart">
+                <svg viewBox="0 0 40 18" width="40" height="18">
+                    <rect x="6" y="6" width="26" height="6" rx="2" fill="currentColor"/>
+                    <rect x="16" y="2" width="8" height="5" rx="2" fill="currentColor"/>
+                    <circle cx="10" cy="13" r="4" fill="#16181b"/>
+                    <circle cx="30" cy="13" r="4" fill="#16181b"/>
+                    <rect x="32" y="7" width="6" height="3" rx="1" fill="currentColor"/>
+                </svg>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero: live timing -->
+    <section id="home" class="hero">
+        <div class="wrapper hero-grid">
+            <div class="hero-text">
+                <p class="eyebrow"><span class="status-light" aria-hidden="true"></span> Live timing · Bangkok · updated Sept 2026</p>
+                <h1>Papatchol<br><span class="nick">“Sand”</span> Thientong</h1>
+                <p class="hero-lede">PhD student in Linguistics at Chulalongkorn University, studying why LLMs sound cold in Thai.</p>
+
+                <div class="radio" aria-live="polite">
+                    <div class="radio-label"><i class="fa-solid fa-headset"></i> Team radio</div>
+                    <p class="radio-msg" id="radio-msg">“Parsed 200 million Thai dependency arcs. Still can’t parse my own to-do list.”</p>
+                    <button class="radio-next" id="radio-next">Next message <i class="fa-solid fa-arrow-right"></i></button>
                 </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#resume">Resume</a></li>
-                        <li><a href="#portfolio">Research & Projects</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li>
-                            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                                <i class="fa-solid fa-sun" id="theme-icon"></i>
-                            </button>
-                        </li>
+
+                <div class="btn-group">
+                    <a href="https://arxiv.org/abs/2609.27558" class="btn btn-primary" target="_blank" rel="noopener">Read ThaiTrees</a>
+                    <a href="CV.pdf" class="btn" download>Download CV</a>
+                    <a href="#radio" class="btn btn-ghost">Say hi</a>
+                </div>
+            </div>
+
+            <div class="timing" role="table" aria-label="What I'm doing now, as a timing screen">
+                <div class="timing-head" role="row">
+                    <span role="columnheader">Pos</span>
+                    <span role="columnheader">Entry</span>
+                    <span role="columnheader">Status</span>
+                </div>
+                <div class="timing-row" role="row">
+                    <span class="pos" role="cell">1</span>
+                    <span class="entry" role="cell"><strong>PhD Linguistics</strong><small>Chulalongkorn University · Year 1</small></span>
+                    <span class="status s-green" role="cell">In session</span>
+                </div>
+                <div class="timing-row" role="row">
+                    <span class="pos" role="cell">2</span>
+                    <span class="entry" role="cell"><strong>ThaiTrees</strong><small>arXiv:2609.27558 · 342M tokens</small></span>
+                    <span class="status s-purple" role="cell">Personal best</span>
+                </div>
+                <div class="timing-row" role="row">
+                    <span class="pos" role="cell">3</span>
+                    <span class="entry" role="cell"><strong>Eccelix AI Solutions</strong><small>Co-founder</small></span>
+                    <span class="status s-green" role="cell">Running</span>
+                </div>
+                <div class="timing-row" role="row">
+                    <span class="pos" role="cell">4</span>
+                    <span class="entry" role="cell"><strong>MSc Speech &amp; Language Processing</strong><small>University of Sheffield</small></span>
+                    <span class="status s-flag" role="cell">Distinction</span>
+                </div>
+                <div class="timing-foot">
+                    <span><i class="s-dot s-green"></i> active</span>
+                    <span><i class="s-dot s-purple"></i> personal best</span>
+                    <span><i class="s-dot s-flag"></i> finished</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- P1 · Now -->
+    <section id="now" class="section">
+        <div class="wrapper">
+            <h2 class="pitboard"><span class="pb-pos">P1</span> Now</h2>
+            <div class="now-grid">
+                <figure class="driver-card">
+                    <img src="images/my_photo_converted.jpg" alt="Portrait of Sand Thientong">
+                    <figcaption>
+                        <span class="driver-no">#27</span>
+                        <span>Papatchol Thientong</span>
+                        <span class="driver-team">Chula Linguistics · Year 1</span>
+                    </figcaption>
+                </figure>
+                <ul class="now-list">
+                    <li>
+                        <span class="now-key">Studying</span>
+                        <span>Year 1 of a PhD in Linguistics at Chulalongkorn University, supervised by Assoc. Prof. Attapol Thamrongrattanarit-Rutherford. This semester: NLP III, Psycholinguistics, and Phonology &amp; Syntax.</span>
+                    </li>
+                    <li>
+                        <span class="now-key">Building</span>
+                        <span>Eccelix AI Solutions, which I co-founded with four friends from Sheffield.</span>
+                    </li>
+                    <li>
+                        <span class="now-key">Just shipped</span>
+                        <span>ThaiTrees, a 342-million-token parsed corpus of Thai across four domains, now on arXiv.</span>
+                    </li>
+                    <li>
+                        <span class="now-key">Off track</span>
+                        <span>Six-hour team endurance races in the EasyKart Championship, cooking for my two dogs, and studying poker theory I don’t use.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- P2 · Research -->
+    <section id="research" class="section section-alt">
+        <div class="wrapper">
+            <h2 class="pitboard"><span class="pb-pos">P2</span> Research</h2>
+            <div class="research-grid">
+                <div class="research-question">
+                    <p class="eyebrow">Dissertation direction</p>
+                    <h3>Why does AI-generated Thai sound polite but cold?</h3>
+                    <p>English builds empathy mostly from emotion vocabulary. Thai carries much of it in grammar: sentence-final particles like <span lang="th">นะ</span> and <span lang="th">เนอะ</span>, set expressions like <span lang="th">ไม่เป็นไร</span> and <span lang="th">สู้ ๆ</span>, and leaving things unsaid. My hypothesis is that LLM Thai gets the grammar and politeness right but misses these interactional signals. I’m testing this in everyday comforting conversations.</p>
+                    <ul class="tags">
+                        <li>Thai treebanks</li>
+                        <li>Dependency parsing</li>
+                        <li>Register variation</li>
+                        <li>Affect &amp; empathy in LLMs</li>
                     </ul>
-                </nav>
-            </header>
-            <div class="container">
-                 <div class="hero-pic">
-                    <img src="images/my_photo_converted.jpg" alt="profile pic">
-                 </div>
-                 <div class="hero-text">
-                    <h5>Hi I'm an <span class="input">English Tutor</span></h5>
-                    <h1>Papatchol (Sand) T.</h1>
-                    <p>Enthusiastic computer science student in speech and language processing, with a passion for creating tools that bridge technology and education. Alongside my research, I've spent years teaching English, combining technical innovation with teaching experience to design solutions that make language learning more effective and engaging.
-                    </p>
-
-                    <div class="btn-group">
-                       <a href="CV.pdf" class="btn active" download>Download CV</a>
-                       <a href="#contact" class="btn">Contact</a>
+                </div>
+                <div class="publication">
+                    <p class="eyebrow">Publication</p>
+                    <p class="citation">Rutherford, A. T. &amp; <strong>Thientong, P.</strong> (2026). <em>ThaiTrees: Thai Syntactic Distribution Across Domains.</em> arXiv:2609.27558.</p>
+                    <div class="chips">
+                        <span class="chip"><b>342M</b> tokens</span>
+                        <span class="chip"><b>4</b> domains</span>
+                        <span class="chip"><b>199.8M</b> dependency edges</span>
+                        <span class="chip"><b>451k</b> word forms</span>
                     </div>
-
-                    <div class="social">
-                        <a href="https://www.facebook.com/Papatchol.Thientong" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.linkedin.com/in/papatcholt/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/sandpapat/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://github.com/sandpapat" target="_blank"><i class="fa-brands fa-github"></i></a>
+                    <div class="link-row">
+                        <a href="https://arxiv.org/abs/2609.27558" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Paper</a>
+                        <a href="https://github.com/nlp-chula/thaitrees" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Corpus &amp; data</a>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
-     </div>
+    </section>
 
-     <!-- Resume Section -->
-     <section id="resume" class="resume-section">
+    <!-- P3 · Pit lane (experience) -->
+    <section id="pitlane" class="section">
         <div class="wrapper">
-            <h2 class="section-title">Resume</h2>
-
-
-            <!-- Education Section -->
-            <div class="resume-section-block">
-                <h3 class="section-heading">Education</h3>
-                <div class="education-item">
-                    <div class="education-header">
-                        <h4>MSc Computer Science with Speech and Natural Language Processing</h4>
-                        <span class="date">2024-2025</span>
+            <h2 class="pitboard"><span class="pb-pos">P3</span> Pit lane</h2>
+            <p class="section-intro">Education and work, most recent first.</p>
+            <ol class="laps">
+                <li class="lap">
+                    <span class="lap-time">2026–now</span>
+                    <div>
+                        <h3>PhD in Linguistics</h3>
+                        <p class="lap-where">Chulalongkorn University, Bangkok</p>
+                        <p>Thai NLP and empathy in AI-generated Thai, in Prof. Attapol’s lab. A grades in Computational Linguistics (NLP II) and Semantics, transferred into the programme.</p>
                     </div>
-                    <div class="institution-with-logo">
-                        <img src="images/UOSLogo_Primary_MidnightBlack_RGB.png" alt="University of Sheffield Logo" class="university-logo">
-                        <div class="institution-text">
-                            <p class="institution">University of Sheffield, School of Computer Science, Faculty of Engineering</p>
-                            <p class="location">Sheffield, United Kingdom</p>
-                        </div>
+                </li>
+                <li class="lap">
+                    <span class="lap-time">2025–now</span>
+                    <div>
+                        <h3>Co-founder</h3>
+                        <p class="lap-where">Eccelix AI Solutions</p>
+                        <p>An AI solutions company started with four friends from Sheffield.</p>
                     </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <h4>BEng Automotive Engineering</h4>
-                        <span class="date">2019 - 2023</span>
+                </li>
+                <li class="lap">
+                    <span class="lap-time">2024–25</span>
+                    <div>
+                        <h3>MSc Computer Science with Speech and Language Processing</h3>
+                        <p class="lap-where">University of Sheffield, UK</p>
+                        <p>Distinction (weighted average 75.83; dissertation 77). Dissertation: Thaislate, an LLM-based Thai–English grammar learning tool.</p>
                     </div>
-                    <div class="institution-with-logo">
-                        <img src="images/chula_logo.png" alt="Chulalongkorn University Logo" class="university-logo">
-                        <div class="institution-text">
-                            <p class="institution">Chulalongkorn University International School of Engineering</p>
-                            <p class="location">Bangkok, Thailand</p>
-                            <p class="gpa">GPA: 3.01</p>
-                        </div>
+                </li>
+                <li class="lap">
+                    <span class="lap-time">2022–23</span>
+                    <div>
+                        <h3>Chief Operating Officer</h3>
+                        <p class="lap-where">Interpal English School, Bangkok</p>
+                        <p>Built the school’s operational framework and its “Hybrid English” teaching method.</p>
                     </div>
-                </div>
-            </div>
-
-            <!-- Professional Experience Section -->
-            <div class="resume-section-block">
-                <h3 class="section-heading">Professional Experience</h3>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4>Chief Operating Officer</h4>
-                        <span class="date">Jul 2022 - Jul 2023</span>
+                </li>
+                <li class="lap">
+                    <span class="lap-time">2019–23</span>
+                    <div>
+                        <h3>BEng Automotive Engineering</h3>
+                        <p class="lap-where">Chulalongkorn University International School of Engineering</p>
+                        <p>Class president and CFO of the Chulalongkorn University Racing Electric club. This is where the karting started.</p>
                     </div>
-                    <p class="company">Interpal English School, Bangkok</p>
-                    <ul class="achievements">
-                        <li>Developed operational framework with performance metrics for all teams</li>
-                        <li>Implemented "Hybrid English" learning method utilizing four main English skills</li>
-                        <li>Created collaborative culture resulting in increased employee engagement</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4>Part-time English Tutor & Team Leader</h4>
-                        <span class="date">Aug 2018 - Jul 2022</span>
+                </li>
+                <li class="lap">
+                    <span class="lap-time">2018–22</span>
+                    <div>
+                        <h3>English Tutor &amp; Team Leader</h3>
+                        <p class="lap-where">Monkey Monkey Tutoring School, Bangkok</p>
+                        <p>Taught classes of 1 to 30 students and led the part-time tutor team. Also taught a TOEIC course at Valaya Alongkorn Rajabhat University in 2023.</p>
                     </div>
-                    <p class="company">Monkey Monkey Tutoring School, Bangkok</p>
-                    <ul class="achievements">
-                        <li>Conducted English sessions for diverse class sizes (1-30 students)</li>
-                        <li>Led English Part-time division, mentoring junior tutors</li>
-                        <li>Served as Master of Ceremonies for "Uplifting" live language learning events</li>
-                    </ul>
-                </div>
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h4>TOEIC Instructor</h4>
-                        <span class="date">Apr 2023</span>
-                    </div>
-                    <div class="company-with-logo">
-                        <img src="images/Valai 2.png" alt="Valaya Alongkorn Rajabhat University Logo" class="company-logo">
-                        <div class="company-text">
-                            <p class="company">Valaya Alongkorn Rajabhat University, Bangkok</p>
-                        </div>
-                    </div>
-                    <ul class="achievements">
-                        <li>Taught TOEIC preparation course for university students</li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Technical Skills Section -->
-            <div class="resume-section-block">
-                <h3 class="section-heading">Technical Skills</h3>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h4>Programming Languages</h4>
-                        <div class="skill-item">
-                            <span>Python</span>
-                            <span class="skill-level skillful">Skillful</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Java</span>
-                            <span class="skill-level skillful">Skillful</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Specializations</h4>
-                        <div class="skill-item">
-                            <span>Natural Language Processing</span>
-                            <span class="skill-level skillful">Skillful</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Speech Processing</span>
-                            <span class="skill-level skillful">Skillful</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Languages</h4>
-                        <div class="skill-item">
-                            <span>English</span>
-                            <span class="skill-level near-native">C2</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Thai</span>
-                            <span class="skill-level expert">Native</span>
-                        </div>
-                    </div>
-                    <div class="skill-category">
-                        <h4>Leadership</h4>
-                        <div class="skill-item">
-                            <span>Teaching</span>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                        <div class="skill-item">
-                            <span>Team Management</span>
-                            <span class="skill-level expert">Expert</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Language Certifications Section -->
-            <div class="resume-section-block">
-                <h3 class="section-heading">Language Certifications</h3>
-                <div class="certification-item">
-                    <h4>TOEIC (Test of English for International Communication)</h4>
-                    <span class="certification-score">985/990</span>
-                </div>
-                <div class="certification-item ielts-collapsible" onclick="toggleIeltsBreakdown()">
-                    <div class="ielts-main">
-                        <h4>IELTS (International English Language Testing System)</h4>
-                        <div class="ielts-summary">
-                            <span class="certification-score">8.5 Overall</span>
-                            <i class="fa-solid fa-chevron-down ielts-toggle-icon"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="ielts-breakdown collapsible-content" id="ieltsBreakdown">
-                    <div class="ielts-skill">
-                        <span>Reading</span>
-                        <span class="skill-score">9.0</span>
-                    </div>
-                    <div class="ielts-skill">
-                        <span>Listening</span>
-                        <span class="skill-score">9.0</span>
-                    </div>
-                    <div class="ielts-skill">
-                        <span>Writing</span>
-                        <span class="skill-score">8.0</span>
-                    </div>
-                    <div class="ielts-skill">
-                        <span>Speaking</span>
-                        <span class="skill-score">7.5</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Awards & Leadership Section -->
-            <div class="resume-section-block">
-                <h3 class="section-heading">Awards & Leadership</h3>
-                <div class="award-item">
-                    <h4>St. Gabriel's Foundation English Test</h4>
-                    <span class="award-rank">Ranked #1 (2015)</span>
-                </div>
-                <div class="award-item">
-                    <h4>Thailand's National English Test</h4>
-                    <span class="award-rank">Ranked #27 (2013)</span>
-                </div>
-                <div class="leadership-item">
-                    <h4>Class President</h4>
-                    <p>Automotive Design and Manufacturing Engineering</p>
-                </div>
-                <div class="leadership-item">
-                    <h4>Chief Financial Officer</h4>
-                    <p>Chulalongkorn University Racing Electric Club</p>
-                </div>
-            </div>
-
-            <!-- Download CV Button -->
-            <div class="cv-download">
-                <a href="CV.pdf" class="btn active" download>Download Full CV (PDF)</a>
-            </div>
+                </li>
+            </ol>
+            <p class="certs"><span>IELTS 8.5</span><span>TOEIC 985/990</span><span>Thai (native) · English (C2)</span><span>Python · PyTorch · Stanza · PyThaiNLP · LangGraph · XeLaTeX</span></p>
         </div>
-     </section>
+    </section>
 
-     <!-- Portfolio Section -->
-     <section id="portfolio" class="portfolio-section">
+    <!-- P4 · Garage (projects) -->
+    <section id="garage" class="section section-alt">
         <div class="wrapper">
-            <h2 class="section-title">Research & Projects</h2>
-
-            <!-- AI/NLP Projects Category -->
-            <div class="portfolio-category">
-                <h3 class="category-title">AI/NLP Projects</h3>
-                <div class="projects-grid">
-                    <div class="project-card flagship">
-                        <div class="project-header">
-                            <h4>Thaislate: AI-Enhanced Thai-English Grammar Tool</h4>
-                            <span class="flagship-badge">Flagship Project</span>
-                        </div>
-                        <p class="project-tech">Python • NLP • LLMs • XLM-RoBERTa • Typhoon Models</p>
-                        <p class="project-description">
-                            Dissertation project developing an AI system that helps Thai learners understand English grammar through context-aware explanations. Integrates three specialized models achieving 94.7% tense classification accuracy with 4.33/5 user satisfaction.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric">94.7% Accuracy</span>
-                            <span class="metric">38 User Study</span>
-                            <span class="metric">4.33/5 Rating</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/sandpapat/Thaislate" class="project-link" target="_blank">
-                                <i class="fa-brands fa-github"></i> GitHub
-                            </a>
-                            <a href="images/Thaislate (Reduced size).pdf" class="project-link" download>
-                                <i class="fa-solid fa-file-pdf"></i> Full Dissertation
-                            </a>
-                            <a href="images/Thaislate (Journal).pdf" class="project-link" download>
-                                <i class="fa-solid fa-file-pdf"></i> Journal Version (Shorter)
-                            </a>
-                            <a href="blog1.html" class="project-link blog-link">
-                                <i class="fa-solid fa-arrow-right"></i> Read More in Blog
-                            </a>
-                        </div>
+            <h2 class="pitboard"><span class="pb-pos">P4</span> Garage</h2>
+            <div class="garage-grid">
+                <article class="car car-featured">
+                    <p class="eyebrow">Corpus · 2026</p>
+                    <h3>ThaiTrees</h3>
+                    <p>A parsed corpus for comparing Thai syntax across news, Wikipedia, speech and social media. The pipeline runs CRFcut, AttaCut, AttaParse and a PhayaThaiBERT POS tagger I fine-tuned for the paper. The domains split into a formal pair (news and Wikipedia) and a conversational pair (speech and social media), by word frequency and by syntax.</p>
+                    <div class="chips">
+                        <span class="chip"><b>90.64%</b> POS accuracy</span>
+                        <span class="chip"><b>4.5M</b> sentences</span>
+                        <span class="chip"><b>5,944</b> edge patterns</span>
                     </div>
-                </div>
+                    <div class="link-row">
+                        <a href="https://arxiv.org/abs/2609.27558" target="_blank" rel="noopener"><i class="fa-solid fa-file-lines"></i> Paper</a>
+                        <a href="https://github.com/nlp-chula/thaitrees" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                    </div>
+                </article>
+                <article class="car">
+                    <p class="eyebrow">MSc dissertation · 2025</p>
+                    <h3>Thaislate</h3>
+                    <p>A translation tool that explains English tenses to Thai learners in Thai. Typhoon-Translate-4B translates, an XLM-RoBERTa classifier identifies the tense, and Typhoon-2.1-Instruct writes the explanation. It ran as a Flask app on GCP and was tested in an ethics-approved user study.</p>
+                    <div class="chips">
+                        <span class="chip"><b>94.7%</b> tense accuracy</span>
+                        <span class="chip"><b>38</b> participants</span>
+                        <span class="chip"><b>4.33</b>/5 rating</span>
+                    </div>
+                    <div class="link-row">
+                        <a href="https://github.com/sandpapat/Thaislate" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
+                        <a href="images/Thaislate (Reduced size).pdf" target="_blank"><i class="fa-solid fa-book"></i> Dissertation</a>
+                        <a href="images/Thaislate (Journal).pdf" target="_blank"><i class="fa-solid fa-file"></i> Short version</a>
+                        <a href="#blog"><i class="fa-solid fa-pen-nib"></i> Blog series</a>
+                    </div>
+                </article>
             </div>
-
-            <!-- Engineering & Simulation Category -->
-            <div class="portfolio-category">
-                <h3 class="category-title">Engineering & Simulation</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>Traffic Congestion Optimization System</h4>
-                        </div>
-                        <p class="project-tech">Java • Anylogic • Simulation • Optimization</p>
-                        <p class="project-description">
-                            Developed a traffic light control system simulation for Bangkok intersections using Anylogic. Optimized traffic flow patterns through dynamic timing algorithms and intersection modeling.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric">27% Improvement</span>
-                            <span class="metric">Real-world Ready</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Data Science Category -->
-            <div class="portfolio-category">
-                <h3 class="category-title">Data Science</h3>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h4>Water pH Correlation Analysis</h4>
-                        </div>
-                        <p class="project-tech">Python • Linear Regression • Statistical Analysis</p>
-                        <p class="project-description">
-                            Investigated correlations between drinking water pH levels and various weather factors using stepwise linear regression analysis. Identified key environmental predictors of water quality variations.
-                        </p>
-                        <div class="project-metrics">
-                            <span class="metric">R² = 0.36</span>
-                            <span class="metric">Multi-factor Analysis</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="earlier">
+                <p class="eyebrow">Earlier work</p>
+                <ul>
+                    <li><strong>Traffic signal optimisation</strong>: an AnyLogic simulation of a Bangkok intersection that improved traffic flow by 27%.</li>
+                    <li><strong>Water pH analysis</strong>: stepwise linear regression of drinking-water pH against weather factors (R² = 0.36).</li>
+                </ul>
             </div>
         </div>
-     </section>
+    </section>
 
-     <!-- Blog Section -->
-     <section id="blog" class="blog-section">
+    <!-- Blog -->
+    <section id="blog" class="section">
         <div class="wrapper">
-            <h2 class="section-title">Blog</h2>
-
-            <div class="blog-intro">
-                <p>Exploring the intersection of artificial intelligence, language learning, and educational technology through research and development.</p>
-            </div>
-
-            <div class="blog-posts-grid">
-                <!-- Featured Post: Introducing Thaislate -->
-                <a href="blog1.html" style="text-decoration: none; color: inherit;">
-                <article class="blog-card featured">
-                    <div class="blog-card-image">
-                        <img src="images/Thaislate figures/Thai_page.jpg" alt="Thaislate Thai Interface">
-                        <div class="featured-badge">Featured</div>
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category nlp">NLP</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">8 min read</span>
-                        </div>
-                        <h3>Introducing Thaislate: AI-Powered Grammar Learning</h3>
-                        <p>Bridging the gap between Thai and English through context-aware AI explanations. A dissertation project that helps Thai learners understand English grammar intricacies.</p>
-                        <div class="blog-card-footer">
-                            <span class="expand-indicator">
-                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                </a>
-
-                <!-- Post 2: Neural Pipeline -->
-                <a href="blog2.html" style="text-decoration: none; color: inherit;">
-                <article class="blog-card">
-                    <div class="blog-card-image">
-                        <img src="images/Thaislate figures/complete_architecture.png" alt="Thaislate Architecture">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category research">Research</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">6 min read</span>
-                        </div>
-                        <h3>Building the Neural Pipeline: From Translation to Explanation</h3>
-                        <p>Deep dive into the three-layer architecture that powers Thaislate: translation, classification, and explanation generation using state-of-the-art language models.</p>
-                        <div class="blog-card-footer">
-                            <span class="expand-indicator">
-                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                </a>
-
-                <!-- Post 3: BERT Classifier -->
-                <a href="blog3.html" style="text-decoration: none; color: inherit;">
-                <article class="blog-card">
-                    <div class="blog-card-image">
-                        <img src="images/Thaislate figures/BERT_classifier.png" alt="BERT Classification Model">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category nlp">NLP</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">7 min read</span>
-                        </div>
-                        <h3>Training a Custom BERT Classifier for Thai-English Tenses</h3>
-                        <p>How I fine-tuned XLM-RoBERTa to achieve 94.7% accuracy on 24-category English tense classification, specifically tailored for Thai learners' common mistakes.</p>
-                        <div class="blog-card-footer">
-                            <span class="expand-indicator">
-                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                </a>
-
-                <!-- Post 4: UX Design -->
-                <a href="blog4.html" style="text-decoration: none; color: inherit;">
-                <article class="blog-card">
-                    <div class="blog-card-image">
-                        <img src="images/Thaislate figures/3_sections.jpg" alt="Thaislate User Interface">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category ux">UX Design</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">5 min read</span>
-                        </div>
-                        <h3>User Experience Design for Language Learning</h3>
-                        <p>Designing an intuitive interface that makes complex grammar explanations accessible. From wireframes to user testing with 38 Thai learners.</p>
-                        <div class="blog-card-footer">
-                            <span class="expand-indicator">
-                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                </a>
-
-                <!-- Post 5: Performance Analysis -->
-                <a href="blog5.html" style="text-decoration: none; color: inherit;">
-                <article class="blog-card">
-                    <div class="blog-card-image">
-                        <img src="images/Thaislate figures/System_performance.jpg" alt="System Performance Metrics">
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span class="blog-category data">Data Analysis</span>
-                            <span class="blog-date">September 2025</span>
-                            <span class="reading-time">6 min read</span>
-                        </div>
-                        <h3>Measuring Success: User Analytics and Performance</h3>
-                        <p>Analyzing user satisfaction scores, system performance metrics, and the surprising disconnect between technical accuracy and user experience.</p>
-                        <div class="blog-card-footer">
-                            <span class="expand-indicator">
-                                <i class="fa-solid fa-arrow-right"></i> Read Full Post
-                            </span>
-                        </div>
-                    </div>
-                </article>
-                </a>
-            </div>
-
+            <h2 class="pitboard"><span class="pb-pos">P5</span> Blog</h2>
+            <p class="section-intro">The Thaislate series (2025): five posts on building my MSc dissertation, from the idea to the user study.</p>
+            <ol class="posts">
+                <li><a href="blog1.html"><span class="post-no">01</span><span class="post-title">Introducing Thaislate: AI-powered grammar learning</span><span class="post-meta">8 min</span></a></li>
+                <li><a href="blog2.html"><span class="post-no">02</span><span class="post-title">Building the neural pipeline: from translation to explanation</span><span class="post-meta">6 min</span></a></li>
+                <li><a href="blog3.html"><span class="post-no">03</span><span class="post-title">Training a custom BERT classifier for Thai–English tenses</span><span class="post-meta">7 min</span></a></li>
+                <li><a href="blog4.html"><span class="post-no">04</span><span class="post-title">User experience design for language learning</span><span class="post-meta">5 min</span></a></li>
+                <li><a href="blog5.html"><span class="post-no">05</span><span class="post-title">Measuring success: user analytics and performance</span><span class="post-meta">6 min</span></a></li>
+            </ol>
         </div>
-     </section>
+    </section>
 
-     <!-- Contact Section -->
-     <section id="contact" class="contact-section">
+    <!-- P6 · Radio (contact) -->
+    <section id="radio" class="section section-dark">
+        <div class="wrapper radio-grid">
+            <div>
+                <h2 class="pitboard"><span class="pb-pos">P6</span> Radio</h2>
+                <p class="bio">Part-time introvert, full-time overthinker. I went from teaching people English to teaching machines Thai, and now I’m working out why the machines still sound like a customer-service script. Most race weekends I’m at the kart track pretending to be Alex Albon (fellow Thai representing!) and planning endurance stints to three decimal places before driving them on instinct anyway. Off track, I cook home-made meals for Afong and Otueng (my dogs eat better than I do), read GTO poker charts instead of winning actual poker, and play Valorant and FC Online with a Man Utd historical squad.</p>
+            </div>
+            <div class="contact-card">
+                <a href="mailto:papatchol.t@gmail.com" class="contact-line"><i class="fa-solid fa-envelope"></i> papatchol.t@gmail.com</a>
+                <a href="https://www.linkedin.com/in/papatcholt/" target="_blank" rel="noopener" class="contact-line"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/papatcholt</a>
+                <a href="https://github.com/sandpapat" target="_blank" rel="noopener" class="contact-line"><i class="fa-brands fa-github"></i> github.com/sandpapat</a>
+                <p class="contact-line"><i class="fa-brands fa-line"></i> Line ID: dewsand</p>
+                <div class="social">
+                    <a href="https://www.facebook.com/Papatchol.Thientong" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/sandpapat/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
         <div class="wrapper">
-            <h2 class="section-title">Contact</h2>
-
-            <div class="contact-content">
-                <div class="contact-header">
-                    <h3>Papatchol (Sand) Thientong</h3>
-                    <p class="contact-location">Bangkok, Thailand</p>
-                    <h4>Bio</h4>
-                    <p class="contact-summary">Part-time introvert, full-time overthinker who somehow ended up teaching machines to teach humans English grammar (yes, the irony isn't lost on me). When I'm not debugging why my AI thinks 'I will had been going' is a valid tense, you'll find me at the go-kart track pretending I'm Alex Albon (fellow Thai representing!), getting roasted by friends for being way too competitive in rental karts while wearing my 'totally necessary' racing gloves, shoes, and helmet that cost more than my monthly GPU budget. I oscillate between wanting to discuss neural networks at parties and hiding in the corner with my headphones on, soundtrack depending on whether it's a race weekend or deadline season. Currently training AI to be a better language teacher than me – which is either brilliant innovation or elaborate career suicide, jury's still out. Will passionately argue that go-karting is the purest form of motorsport while simultaneously explaining why my lap times would definitely improve with just one more piece of professional gear. Send help (or better GPU resources... or honestly, just sponsor my karting dreams at this point).</p>
-                </div>
-
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div class="contact-details">
-                            <h4>Email</h4>
-                            <a href="mailto:papatchol.t@gmail.com">papatchol.t@gmail.com</a>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <i class="fa-brands fa-line"></i>
-                        <div class="contact-details">
-                            <h4>Line ID</h4>
-                            <span>dewsand</span>
-                        </div>
-                    </div>
-
-                    <div class="contact-method">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <div class="contact-details">
-                            <h4>LinkedIn</h4>
-                            <a href="https://www.linkedin.com/in/papatcholt/" target="_blank">linkedin.com/in/papatcholt</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="social-links">
-                    <h4>Connect with me</h4>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/papatcholt/" target="_blank" class="social-link linkedin">
-                            <i class="fa-brands fa-linkedin"></i>
-                            <span>LinkedIn</span>
-                        </a>
-                        <a href="https://github.com/sandpapat" target="_blank" class="social-link github">
-                            <i class="fa-brands fa-github"></i>
-                            <span>GitHub</span>
-                        </a>
-                        <a href="https://www.facebook.com/Papatchol.Thientong" target="_blank" class="social-link facebook">
-                            <i class="fa-brands fa-facebook"></i>
-                            <span>Facebook</span>
-                        </a>
-                        <a href="https://www.instagram.com/sandpapat/" target="_blank" class="social-link instagram">
-                            <i class="fa-brands fa-instagram"></i>
-                            <span>Instagram</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="quick-downloads">
-                    <h4>Quick Downloads</h4>
-                    <div class="download-buttons">
-                        <a href="CV.pdf" class="download-btn" download>
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>Download CV</span>
-                        </a>
-                        <a href="images/Thaislate (Reduced size).pdf" class="download-btn" download>
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>Full Dissertation</span>
-                        </a>
-                        <a href="images/Thaislate (Journal).pdf" class="download-btn" download>
-                            <i class="fa-solid fa-file-pdf"></i>
-                            <span>Journal Version (Shorter)</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="availability-status">
-                    <div class="status-indicator">
-                        <div class="status-dot available"></div>
-                        <span>Available for collaboration opportunities and research positions</span>
-                    </div>
-                </div>
-            </div>
+            <span>© 2026 Papatchol Thientong</span>
+            <span class="footer-flag" aria-hidden="true"></span>
         </div>
-     </section>
+    </footer>
 
-     <!---typed js for typing text effect-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-     <script>
-        /** creating button click show hide navbar **/
-        var togglebtn=document.querySelector(".togglebtn");
-        var nav=document.querySelector(".navlinks");
-        var links=document.querySelector(".navlinks li");
-
-        togglebtn.addEventListener("click", function(){
+    <script>
+        /** Mobile navigation **/
+        var togglebtn = document.querySelector(".togglebtn");
+        var nav = document.querySelector(".navlinks");
+        togglebtn.addEventListener("click", function () {
             this.classList.toggle("click");
             nav.classList.toggle("open");
-        })
-
-        var typed=new Typed(".input",{
-            strings:["English Tutor","NLP Engineer","ML Engineer"],
-            typedSpeed:70,
-            backSpeed:55,
-            loop:true
-        })
-
-        /** Theme Toggle Functionality **/
-        function initTheme() {
-            // Check for saved theme preference or default to light theme
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-            let currentTheme = savedTheme;
-            if (!savedTheme) {
-                currentTheme = 'light'; // Default to light theme
-            }
-
-            // Apply theme
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            updateThemeIcon(currentTheme);
-        }
-
-        function updateThemeIcon(theme) {
-            const icon = document.getElementById('theme-icon');
-            if (theme === 'dark') {
-                icon.className = 'fa-solid fa-sun';
-            } else {
-                icon.className = 'fa-solid fa-moon';
-            }
-        }
-
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        }
-
-        // Initialize theme on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            initTheme();
-
-            // Add event listener to theme toggle button
-            const themeToggle = document.getElementById('theme-toggle');
-            if (themeToggle) {
-                themeToggle.addEventListener('click', toggleTheme);
-                console.log('Theme toggle button found and listener added');
-            } else {
-                console.error('Theme toggle button not found');
-            }
+            this.setAttribute("aria-expanded", nav.classList.contains("open"));
+        });
+        nav.querySelectorAll("a").forEach(function (a) {
+            a.addEventListener("click", function () {
+                nav.classList.remove("open");
+                togglebtn.classList.remove("click");
+                togglebtn.setAttribute("aria-expanded", "false");
+            });
         });
 
-        /** Toggle IELTS breakdown functionality **/
-        function toggleIeltsBreakdown() {
-            const breakdown = document.getElementById('ieltsBreakdown');
-            const icon = document.querySelector('.ielts-toggle-icon');
+        /** Team radio: cycle taglines **/
+        var messages = [
+            "“Parsed 200 million Thai dependency arcs. Still can’t parse my own to-do list.”",
+            "“Researching why AI can’t say นะ properly. Also can’t say no to side projects.”",
+            "“Will overthink a go-kart stint plan to three decimal places, then drive it anyway.”"
+        ];
+        var msgIndex = 0;
+        var radioMsg = document.getElementById("radio-msg");
+        document.getElementById("radio-next").addEventListener("click", function () {
+            msgIndex = (msgIndex + 1) % messages.length;
+            radioMsg.classList.remove("in");
+            void radioMsg.offsetWidth;
+            radioMsg.textContent = messages[msgIndex];
+            radioMsg.classList.add("in");
+        });
 
-            if (breakdown.classList.contains('expanded')) {
-                breakdown.classList.remove('expanded');
-                icon.classList.remove('rotated');
-            } else {
-                breakdown.classList.add('expanded');
-                icon.classList.add('rotated');
-            }
+        /** Kart follows scroll progress **/
+        var kart = document.getElementById("kart");
+        function moveKart() {
+            var max = document.documentElement.scrollHeight - window.innerHeight;
+            var progress = max > 0 ? window.scrollY / max : 0;
+            var travel = window.innerWidth - kart.offsetWidth;
+            kart.style.transform = "translateX(" + (progress * travel) + "px)";
         }
+        window.addEventListener("scroll", moveKart, { passive: true });
+        window.addEventListener("resize", moveKart);
+        moveKart();
 
-     </script>
-
-     <!-- Footer -->
-     <footer class="site-footer">
-        <div class="wrapper">
-            <p class="copyright-text">
-                © 2025 Copyright: Papatchol Thientong
-            </p>
-        </div>
-     </footer>
+        /** Theme toggle **/
+        function updateThemeIcon(theme) {
+            document.getElementById("theme-icon").className = theme === "dark" ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        }
+        updateThemeIcon(document.documentElement.getAttribute("data-theme"));
+        document.getElementById("theme-toggle").addEventListener("click", function () {
+            var next = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+            document.documentElement.setAttribute("data-theme", next);
+            try { localStorage.setItem("theme", next); } catch (e) {}
+            updateThemeIcon(next);
+        });
+    </script>
 </body>
 </html>
